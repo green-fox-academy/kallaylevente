@@ -1,0 +1,41 @@
+pwd <> print working directory, shows current directory
+ls  <> listed the visible items in current directory
+ls -a <> shows hidden stuff aswell
+cd xyz <> change directory
+touch <> making a file
+mkdir <> making a directory
+cd .. <> going back to previous directory
+cd ~ <> going back to your home directory
+cd / <> brings you back to root
+rmdir <> removing a directory
+rm <> remove a file
+rm -R <> remove everything , the whole foldre with the stuff in it
+touch <> creat a file
+cp * xyz/ <>  copy everything from the current directory
+cp m*.txt scifi/ <> copies every that starts with m and ends with .txt
+mv xyz.txt xyz/<> moves something to the directory
+mv batman.txt wonderwoman.txt <> rename batman to wonderwoman
+stdin <> standard input
+stdout <> standard output
+stderr <> standard error 
+cat <> outputs a content of a file 
+> <> directs data, overwrite existing data
+>> <> appends the data, dont overwrite it
+< <> send data to from the right side to the left side as stdin | $ cat < lakes.txt
+| <> pipe, takes the stdout of a command and pipes it as stdin
+wc <> shows the number of lines,words and characters
+sort <> order the stdin alphabeticli and send it to stdout
+uniq <> sorts out the duplications and send to stdout
+grep <> searches for matches, case sensitive
+-r <> cheks only the filenames, not the path
+-i grep <> makes it cas unsesnsitive
+sed <> modife stdin as the expression say to
+s <> substitution in sed orders like sed 's/snow/rain/' mit/mivel
+g <> 's/snow/rain/g' makes it global, and not only change the firs match
+alia <> allows us make shortcuts
+history <> outputs the parancsokat
+source <> betolti a config filet
+$ <> used when we return a value of a variable
+PS1 <> variable that stores the command prompt's letter
+PATH <> directories where scripts are stored
+* <> wildcard, pl "m*.txt"wd
