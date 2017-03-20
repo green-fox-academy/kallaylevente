@@ -1,0 +1,11 @@
+div {
+  width: 349px;
+  height: 133px;
+  margin: 17px;
+  padding: 30px;
+  border: 6px solid #7DCE94;
+  background-color: #0E91A1;
+  font-size: 36px;
+  color: rgba(0,0,0,0.5);
+  font-family: 'Open Sans', sans-serif;
+}

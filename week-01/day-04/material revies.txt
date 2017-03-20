@@ -1,0 +1,20 @@
+Multiple elements selector
+Combine selectors	pl: tag.classname
+Descendent selector	pl: tag tag{}
+Universal selector
+Attribute selector 	pl a[href$="pdf"]
+Child selector		csak a direkt gyereket jeloli ki	
+Adjacent selector	ul li + ol
+Pseudo selector
+first-child, last-child, nth-child, nth-type 	
+important
+font-size
+font-family
+text-decoration
+font-weight
+text-transform
+block element
+inline element
+inline-block
+comments
+.alma :hover alm'ba levo dolgokra hoverelsz

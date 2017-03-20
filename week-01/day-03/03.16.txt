@@ -1,0 +1,42 @@
+<html>
+<head> 		meta dadatok
+<link>		kulso tartalom htmlhez csatolasa pl css
+<script>	javascript behuzasa a html kodba
+<body>		fo taralmi resz
+<meta> 		kulcsszavak, karakterkeszlet, de en is csinalhatok pl: tojasrating="5", ha valaki a tojasratinget keresne egy keresomotor, pl open graoh protocolt nezi a fb
+<title>		tab, konyvjelzo
+<h1> - <h6>	lehetoleg csak 1, max article belul is lehet meg 1,
+<p>		sima bekezdes
+<a>		link href
+<img>		src
+<article>	pl facebookon egy post, egysegben kezelendo, de sok ilyen van	(ezen belul is lehet footer,header)		
+<aside>		olyan tipusu tartalom ami minden pagen ismetlodik, ami amugy is ua lenne, p facebookon a sidebarok/ reklamok,
+<strong>	vastagon szedett, es jelentesben is fobtosabb(felkialto jellegu)
+<em>		atvitt ertelmu dolog , kiemelt de van mogottes jelentes 
+<span>		jelentes nelkul akarok in line tipusu elemet, akkor ezt akarom hasznalni, de pl felolvaso nem ad neki semmi extra jelentest
+<div>		ez az utolso valasztas, ha semmi mas szemantikus megoldas nincs
+<header>	ismetlodo resz, csak kicsit fontosabb mint egy aside, csak egyszer fordulhat elo az oldalon
+<main>	ami kifejezetten a fo tartalom, pl facebookon a hirfolyam, ezt erdemes ujra tolteni, a tobbi kontext fuggetlen, felolvaso robot ezzel fog kezdeni, googlet is ez erdekli
+<footer>		ismetlod, mind aside cska kevesbe fontos
+<section>		nagyobb szekciora bontott oldalreszletek,  fo tartalmat bontom fel reszletekre
+<ul>		csak li lehet benne, semmi mas
+<ol>		itt is csak li lehet
+<li>
+<dl>		
+<dd>		def. def. megmagyarazza
+<dt>		def. term. megnevezi, ezen belul lehet diveket rakni
+<pre>		elore formazott szoveg, pl keplet, vagy pl kodreszlet
+<q> idezet
+<blockquote> 	blokk tipusu idezet
+
+--------------------------------------------------
+
+class	olyan atributum, amit barminek adhatunk, class nev nem kezdodhet szammal, nem lehet benne spec karakter, es egybe kell irni, vegig kis betuvel
+id`	id-bol csak egy darab lehet az oldalon, soha nem hasznaljuk :) kiveve hogy id alapjan tudok oda ugrani az oldalon, nagy oldalaknal hasznos, hogy egybol oda tudok linkelni
+Descendant selector	"div p" vagy, ".wrap p"	
+Conflict		ket ugyanolyen erossegu szabaly vonatkozik ugyan arra, akkor ami a legutolso votl az lesz ervenyes
+Inheritance	font size, color oroklodik, de pl also margo nem oroklodik
+Specificity		starwars foto
+The Box model		
+Shorthand		
+Default browser styles

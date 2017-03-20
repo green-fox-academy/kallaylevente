@@ -1,0 +1,17 @@
+git init <> csinal egy directoryt ahov a munkafolyamat dolgai kerulnek
+touch .gitignore <> text doksi, amibe azokat irjuk amiket nem akarunk mutatni masoknak
+git add -A vagy ./<> minden filet stageing be akarunk amit meg nem tettunk meg
+git reset <> kiszedi a stageing areabol
+git commit -m  "message about what we do" <> commitolas commenttel
+git log <> shows last commitment
+git clone <url> <where to clone> <> cloneoljuk a porjectet amin dolgozni akarunk (. ha oda ahol vagunk)
+git remote -v <> info a branchrol lokalisan
+git branch <> elagazast csinalok
+git checkout <> branchet valt amin dolgozni fog
+git diff <> megmutatja a valtoztatasokat amiket csinaltam
+git pull <> pull any changes that was made from last pull
+git push <> push the changes that we made  [name of remote repo] [branch we wanna push]
+git branch xyz <> make a new branch for your work
+git chekout <> what i wanna work on
+git push -u <> 
+ 

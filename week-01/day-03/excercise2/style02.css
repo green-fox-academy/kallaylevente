@@ -1,0 +1,29 @@
+
+div {
+  width: 348px;
+  height: 129px;
+  margin: 0;
+  color: white;
+  font-size: 36px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 129px;
+  border-left: 17px solid #4285F4;
+  border-right: 17px solid #4285F4;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.north {
+  background-color: #E67676;
+  border-top: 17px solid #4285F4;
+}
+.east {
+  background-color: #F2F062;
+}
+.south {
+  background-color: #A9E6E6;
+}
+.west {
+  background-color: #7692E4;
+  border-bottom: 17px solid #4285F4;
+}

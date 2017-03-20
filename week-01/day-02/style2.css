@@ -1,0 +1,12 @@
+.box {
+  width: 100px;
+  height: 100px;
+  margin: 30px;
+  padding: 30px;
+  border: 20px solid blue;
+  background-color: yellow;
+  background-image: url(road.jpeg);
+}
+p{
+  color:red;
+}
