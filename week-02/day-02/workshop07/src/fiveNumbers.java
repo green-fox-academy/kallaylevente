@@ -7,6 +7,7 @@ public class fiveNumbers {
     public static void main(String[] args) {
         int sum = 0;
         double average = 0;
+        System.out.println("Give me five numbers");
         for (int i = 0; i < 5 ; i++ ){
             System.out.println("Give me a number");
             Scanner scanner = new Scanner(System.in);
