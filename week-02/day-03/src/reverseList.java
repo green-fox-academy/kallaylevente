@@ -7,10 +7,15 @@ public class reverseList {
         int temp = 0;
         temp = aj[0];
         for (int i = 0; i < aj.length; i++) {
-            aj[0 + i] = aj[aj.length - 2];
-            if ((0 + i) == aj.length - 2) {
+            if ( i == ((aj.length-1) - i)) {
                 break;
             }
+            temp = aj[i];
+            aj[i] = aj[(aj.length-1) - i];
+            aj[(aj.length-1) - i] = temp;
+
+        }
+        for (int i = 0; i < aj.length ; i++) {
             System.out.println(aj[i]);
         }
     }
