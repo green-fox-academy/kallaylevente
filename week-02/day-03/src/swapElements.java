@@ -7,7 +7,7 @@ public class swapElements {
         String Temp = "";
         //System.out.println("abc 1 is: " + abc[0] + " abc2 is: " + abc[2]);
         Temp = abc[0];
-       // System.out.println("Temp is now:" + Temp);
+        // System.out.println("Temp is now:" + Temp);
         abc[0] = abc[2];
         abc[2] = Temp;
         System.out.println("abc 1 is: " + abc[0] + " abc2 is: " + abc[2]);

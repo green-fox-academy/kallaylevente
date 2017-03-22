@@ -6,6 +6,7 @@ public class wrapper {
         String al = "Greenfox";
         greet(al);
     }
+
     public static void greet(String al) {
         String string = al;
         System.out.println("Greetings dear, " + string);

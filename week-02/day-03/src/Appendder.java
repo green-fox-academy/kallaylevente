@@ -6,7 +6,8 @@ public class Appendder {
         String am = "kuty";
         appendder(am);
     }
-    public static void appendder(String string){
+
+    public static void appendder(String string) {
         System.out.println(string + "a");
     }
 }

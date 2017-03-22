@@ -6,10 +6,11 @@ public class Summoner {
         int until = 5;
         System.out.println(summoner(until));
     }
+
     public static int summoner(int until) {
         int sum = 0;
-        for (int i = 1; i < until+1 ; i++) {
-           sum = sum + i;
+        for (int i = 1; i < until + 1; i++) {
+            sum = sum + i;
 
         }
         return sum;
