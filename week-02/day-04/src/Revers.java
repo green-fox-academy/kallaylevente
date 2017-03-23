@@ -18,6 +18,7 @@ public class Revers {
             result = result.concat(charToString);
 
         }
+        result = reversed.concat(result);
         return  result;
     }
 }
