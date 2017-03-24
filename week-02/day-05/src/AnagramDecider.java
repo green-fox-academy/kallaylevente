@@ -24,7 +24,8 @@ public class AnagramDecider {
         return sorted;
     }
     public static String ifEqual(String word1,String word2){
-        if (word1.equals(word2)){
+
+        if (word1.equalsIgnoreCase(word2)){
             return "The two words are anagrams.";
         }
         else{

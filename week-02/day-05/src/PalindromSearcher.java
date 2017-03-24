@@ -15,6 +15,9 @@ public class PalindromSearcher {
                 System.out.print("\"" + listItem + "\"" + ",");
             }
         }
+        if (alist.isEmpty()){
+            System.out.println("[]");
+        }
     }
 
     public static boolean isPalindrom(String listItem) {
@@ -26,7 +29,6 @@ public class PalindromSearcher {
             if ((begin != end) && (i < ((listItem.length() - 1) - i))) {
                 return false;
             }
-
         }
         return true;
     }
@@ -46,9 +48,11 @@ public class PalindromSearcher {
             begin = text.charAt(i);
             for (int j = i+1; j < text.length(); j++) {
                 end = text.charAt(j);
-                if (begin == end) {
+                if (begin == end)  {
                     sub = text.substring(i,j+1);
-                    alist.add(sub);
+                    if (sub.length() > 2) {
+                        alist.add(sub);
+                    }
                 }
 
             }
