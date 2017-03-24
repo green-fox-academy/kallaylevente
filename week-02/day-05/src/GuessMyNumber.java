@@ -37,7 +37,7 @@ public class GuessMyNumber {
 
     public static int random() {
         Random rand = new Random();
-        int n = rand.nextInt(100) + 1;
+        int n = rand.nextInt(5) + 1;
         return n;
     }
     public static int scanner() {
