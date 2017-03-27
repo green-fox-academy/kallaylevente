@@ -1,10 +1,9 @@
+import sun.nio.cs.ArrayEncoder;
+
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Lotoo {
 
@@ -34,32 +33,17 @@ public class Lotoo {
             Integer count = frequency.get(word);
             frequency.put(word, (count==null) ? 1 : count+1);
         }
-        int[] finish = new int[5];
-        Integer min = 0;
-        Integer max = 0;
-        String jee = new String();
-        String minkey = new String();
-        String minvalue = new String();
-        String maxvalue = new String();
-        String maxkey = new String();
-        for (int i = 0; i < 5; i++) {
-            max = 0;
-            for (int j = 1; j < 91; j++) {
-                jee = Integer.toString(j);
 
-                min = frequency.get(jee);
-                if (min > max){
-                    max = min;
-                    maxkey = jee;
-                }
-            }
-            finish[i] = max;
-            frequency.remove(maxkey);
+        List<Integer> topHit = new ArrayList<>();
+        for(Map.Entry<String, Integer> entry: frequency.entrySet()) {
+            topHit.add(entry.getValue());
         }
 
-        for (int i = 0; i < 5 ; i++) {
-            System.out.println(finish[i]);
-        }
+        Collections.sort(topHit);
+        Collections.reverse(topHit);
+
+
+
     }
 
 }
