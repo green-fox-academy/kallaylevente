@@ -12,6 +12,8 @@ public class Horizontal {
 
     drawLine(x, y, graphics);
 
+
+
     x = (int) (Math.random() * 300);
     y = (int) (Math.random() * 300);
     drawLine(x, y, graphics);
