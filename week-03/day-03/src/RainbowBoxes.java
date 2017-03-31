@@ -7,9 +7,9 @@ import javax.swing.*;
 public class RainbowBoxes {
 
   public static void mainDraw(Graphics graphics){
-    int size = 100;
-    for (int i = 0; i < 10 ; i++) {
-      size = size -10;
+    int size = 300;
+    for (int i = 0; i < 15 ; i++) {
+      size = size -20;
       int R = (int) (Math.random() * 256);
       int G = (int) (Math.random() * 256);
       int B = (int) (Math.random() * 256);

@@ -18,6 +18,11 @@ public class EnvelopStar {
     graphics.setColor(Color.green);
 
       for (int i = 0; i < 15; i++) {
+        int R = (int) (Math.random() * 256);
+        int G = (int) (Math.random() * 256);
+        int B = (int) (Math.random() * 256);
+        Color randomColor = new Color(R, G, B);
+        graphics.setColor(randomColor);
         graphics.drawLine(startX, startY, endX, endY);
         graphics.drawLine(startX,startY,end_X,end_Y);
         endX = endX + 10;
@@ -29,6 +34,11 @@ public class EnvelopStar {
     endX = 300;
     end_X = 0;
     for (int i = 0; i < 16; i++) {
+      int R = (int) (Math.random() * 256);
+      int G = (int) (Math.random() * 256);
+      int B = (int) (Math.random() * 256);
+      Color randomColor = new Color(R, G, B);
+      graphics.setColor(randomColor);
       graphics.drawLine(startX, startY, endX, endY);
       graphics.drawLine(startX,startY,end_X,end_Y);
       endX = endX - 10;

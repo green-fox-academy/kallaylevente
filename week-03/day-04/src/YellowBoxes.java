@@ -14,13 +14,13 @@ public class YellowBoxes {
     paint(graphics, n,x,y,size);
   }
 
-  public static void paint(Graphics graphics, int n,int x, int y,int size) {
-    graphics.drawRect(x,y,size,size);
+  public static void paint(Graphics graphics, int n,int x, int y,int w) {
+    graphics.drawRect(x,y,w,w);
     if (n > 0)  {
-      paint(graphics,n-1,x+(size/3), y,(size/3) );
-      paint(graphics,n-1,x, y+size/3,(size/3) );
-      paint(graphics,n-1,x+(size/3), y+size/3*2,(size/3) );
-      paint(graphics,n-1,x+(size/3*2), y+size/3,(size/3) );
+      paint(graphics,n-1,x+(w/3), y,(w/3) );
+      paint(graphics,n-1,x, y+w/3,(w/3) );
+      paint(graphics,n-1,x+(w/3), y+w/3*2,(w/3) );
+      paint(graphics,n-1,x+(w/3*2), y+w/3,(w/3) );
 
     }
   }

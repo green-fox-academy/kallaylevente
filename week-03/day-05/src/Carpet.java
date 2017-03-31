@@ -12,25 +12,25 @@ public class Carpet {
     int y = 200;
     int width = 200;
     int n = 5;
-    paint(graphics,n,x,y,width);
+    paint(graphics, n, x, y, width);
   }
 
-  public static void paint(Graphics graphics,int n,int x, int y,int w) {
-    graphics.fillRect(x,y,w,w);
-    if(n > 0) {
+  public static void paint(Graphics graphics, int n, int x, int y, int w) {
+    graphics.fillRect(x, y, w, w);
+    if (n > 0) {
       int R = (int) (Math.random() * 256);
       int G = (int) (Math.random() * 256);
       int B = (int) (Math.random() * 256);
       Color randomColor = new Color(R, G, B);
       graphics.setColor(randomColor);
-      paint(graphics,n-1,x-(w/3*2),y-(w/3*2),w/3);
-      paint(graphics,n-1,x-(w/3*2),y+(w/3),w/3);
-      paint(graphics, n-1,x-(w/3*2), y+((w/3)*4),w/3);
-      paint(graphics,n-1,x+w/3,y+((w/3)*4),w/3);
-      paint(graphics,n-1,x+((w/3)*4),y+((w/3)*4),w/3);
-      paint(graphics,n-1,x+((w/3)*4),y+w/3,w/3);
-      paint(graphics,n-1,x+((w/3)*4),y-(w/3*2),w/3);
-      paint(graphics, n-1, x+w/3,y-(w/3*2),w/3);
+      paint(graphics, n - 1, x - (w / 3 * 2), y - (w / 3 * 2), w / 3);
+      paint(graphics, n - 1, x - (w / 3 * 2), y + (w / 3), w / 3);
+      paint(graphics, n - 1, x - (w / 3 * 2), y + ((w / 3) * 4), w / 3);
+      paint(graphics, n - 1, x + w / 3, y + ((w / 3) * 4), w / 3);
+      paint(graphics, n - 1, x + ((w / 3) * 4), y + ((w / 3) * 4), w / 3);
+      paint(graphics, n - 1, x + ((w / 3) * 4), y + w / 3, w / 3);
+      paint(graphics, n - 1, x + ((w / 3) * 4), y - (w / 3 * 2), w / 3);
+      paint(graphics, n - 1, x + w / 3, y - (w / 3 * 2), w / 3);
 
     }
   }

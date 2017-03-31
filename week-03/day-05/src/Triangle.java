@@ -8,22 +8,22 @@ public class Triangle {
 
 
   public static void mainDraw(Graphics graphics) {
-   int size = 300;
-   int n = 6;
-   int x  = 0;
+    int size = 300;
+    int n = 6;
+    int x = 0;
     int y = 0;
-    paint(graphics,n,size,x,y);
+    paint(graphics, n, size, x, y);
   }
 
-  public static void paint(Graphics graphics,int n, int size,int x, int y) {
-    int sides =  3;
-    int[] xPoints = {x,x+size,x+size/2};
-    int[] yPoints = {y,y,y+size};
-    graphics.drawPolygon(xPoints,yPoints,sides);
+  public static void paint(Graphics graphics, int n, int size, int x, int y) {
+    int sides = 3;
+    int[] xPoints = {x, x + size, x + size / 2};
+    int[] yPoints = {y, y, y + size};
+    graphics.drawPolygon(xPoints, yPoints, sides);
     if (n > 0) {
-      paint(graphics,n-1,size/2,x,y);
-      paint(graphics,n-1,size/2,x+size/2,y);
-      paint(graphics,n-1,size/2,x+size/4,y+size/2);
+      paint(graphics, n - 1, size / 2, x, y);
+      paint(graphics, n - 1, size / 2, x + size / 2, y);
+      paint(graphics, n - 1, size / 2, x + size / 4, y + size / 2);
     }
 
 
