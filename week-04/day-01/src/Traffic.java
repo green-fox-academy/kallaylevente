@@ -4,8 +4,9 @@ public class Traffic {
     Station shell = new Station();
 
     shell.refill(opel);
-    System.out.println(shell.gasAmount);
-    System.out.println(opel.gasAmount);
+    System.out.println("this is the gaststation gasamount: " +shell.gasAmount);
+    System.out.println("this is the cars gasamount: " + opel.gasAmount);
+
   }
 
 

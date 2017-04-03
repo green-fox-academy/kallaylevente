@@ -4,7 +4,7 @@ public class Sharpie {
   public Float inkAmount;
 
   public Sharpie(String color,Float width) {
-   inkAmount = 100.f  ;
+    inkAmount = 100.f  ;
   }
 
   public Float use() {
