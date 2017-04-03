@@ -4,13 +4,13 @@ public class Counter {
 
   public Counter() {
     number = 0;
-    int workWith = 0;
+    workWith = 0;
   }
 
 
   public Counter(int baseValue) {
      number = baseValue;
-     int workWith = baseValue;
+     workWith = baseValue;
   }
 
   public int add(int whatWeAdd) {
