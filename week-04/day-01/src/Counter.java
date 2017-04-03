@@ -3,14 +3,14 @@ public class Counter {
   int workWith;
 
   public Counter() {
-    number = 0;
-    workWith = 0;
+    this.number = 0;
+    this.workWith = 0;
   }
 
 
   public Counter(int baseValue) {
-    number = baseValue;
-    workWith = baseValue;
+    this.number = baseValue;
+    this.workWith = baseValue;
   }
 
   public int add(int whatWeAdd) {

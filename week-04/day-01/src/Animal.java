@@ -4,8 +4,8 @@ public class Animal {
   public int thirst;
 
   public Animal() {
-    hunger = 50;
-    thirst = 50;
+    this.hunger = 50;
+    this.thirst = 50;
   }
 
   public int eating() {

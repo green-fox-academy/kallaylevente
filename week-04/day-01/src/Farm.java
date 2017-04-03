@@ -6,7 +6,7 @@ public class Farm {
 
   public Farm() {
     animalList = new ArrayList<>();
-    slot = 5;
+    this.slot = 5;
   }
 
   public void breed() {

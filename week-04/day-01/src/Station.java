@@ -2,7 +2,7 @@ public class Station {
   int gasAmount;
 
   public Station() {
-    gasAmount = 500;
+    this.gasAmount = 500;
   }
 
   public void refill(Car car) {
