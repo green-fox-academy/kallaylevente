@@ -16,11 +16,9 @@ public class DiceGame {
 
   public static Dice setToSix(Dice dice) {
     for (int i = 0; i < dice.getCurrent().length; i++) {
-      if (dice.getCurrent(i) != 6) {
-        do {
+      while (dice.getCurrent(i) != 6) {
           dice.reroll(i);
-        } while (dice.getCurrent(i) != 6);
-      }
+        }
     }
     return dice;
   }
