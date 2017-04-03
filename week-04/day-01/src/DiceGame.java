@@ -4,8 +4,6 @@ public class DiceGame {
     dice.roll();
     printer(dice);
     setToSix(dice);
-
-
     printer(dice);
   }
 
