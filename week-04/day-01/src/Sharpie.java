@@ -3,12 +3,12 @@ public class Sharpie {
   public Float width;
   public Float inkAmount;
 
-  public Sharpie(String color,Float width) {
-    inkAmount = 100.f  ;
+  public Sharpie(String color, Float width) {
+    inkAmount = 100.f;
   }
 
   public Float use() {
-    inkAmount = inkAmount-10;
+    inkAmount = inkAmount - 10;
     return inkAmount;
   }
 }

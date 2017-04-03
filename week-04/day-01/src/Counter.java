@@ -1,5 +1,5 @@
 public class Counter {
-  int number ;
+  int number;
   int workWith;
 
   public Counter() {
@@ -9,8 +9,8 @@ public class Counter {
 
 
   public Counter(int baseValue) {
-     number = baseValue;
-     workWith = baseValue;
+    number = baseValue;
+    workWith = baseValue;
   }
 
   public int add(int whatWeAdd) {
@@ -19,7 +19,7 @@ public class Counter {
   }
 
   public void add() {
-    workWith ++ ;
+    workWith++;
 
   }
 
@@ -27,7 +27,7 @@ public class Counter {
     return workWith;
   }
 
-  public int  reset() {
+  public int reset() {
     workWith = this.number;
     return workWith;
   }

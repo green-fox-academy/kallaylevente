@@ -6,7 +6,7 @@ public class TestFarm {
     mucsa.breed();
     System.out.println(mucsa.slot);
     System.out.println(mucsa.animalList.size());
-    for (int i = 0; i < mucsa.animalList.size() ; i++) {
+    for (int i = 0; i < mucsa.animalList.size(); i++) {
       System.out.println(mucsa.animalList.get(i).hunger);
     }
   }

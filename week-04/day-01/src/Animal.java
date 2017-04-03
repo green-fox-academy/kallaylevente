@@ -3,7 +3,7 @@ public class Animal {
   public int hunger;
   public int thirst;
 
-  public Animal(){
+  public Animal() {
     hunger = 50;
     thirst = 50;
   }
@@ -15,10 +15,9 @@ public class Animal {
 
   public int drink() {
     thirst = thirst + 1;
-    return thirst;
-  }
+    return thirst;  }
 
-  public int[] play () {
+  public int[] play() {
     int[] play = new int[2];
     hunger = hunger + 1;
     thirst = thirst + 1;

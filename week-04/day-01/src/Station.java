@@ -1,5 +1,6 @@
 public class Station {
   int gasAmount;
+
   public Station() {
     gasAmount = 500;
   }
