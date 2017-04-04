@@ -3,6 +3,7 @@ public class Aircraft {
   private int baseDamage;
   private int currentAmmo;
   private int damageDealt;
+  private String typeof;
 
   public int getMaxAmmo() {
     return maxAmmo;
@@ -33,7 +34,9 @@ public class Aircraft {
   }
 
   public int  track(){
-    return currentAmmo;
+    int ammoNeededInTrack;
+    ammoNeededInTrack = this.maxAmmo - this.currentAmmo;
+    return ammoNeededInTrack;
   }
 
   public int fight() {
@@ -47,9 +50,21 @@ public class Aircraft {
     if (ammoStack > ammoNeeded) {
       this.currentAmmo = this.maxAmmo;
       ammoStack = (ammoStack - ammoNeeded);
+      return ammoStack;
     }
     this.currentAmmo = this.currentAmmo + ammoStack;
     ammoStack = 0;
     return ammoStack;
+  }
+
+  public String get_type(){
+    typeof = "Aircraft";
+    return typeof;
+  }
+
+  public String get_status() {
+    String statusString = new String();
+    statusString = "Type " + typeof + ", Ammo: " + currentAmmo + ", Base Damage: " + baseDamage + ", All Damage:" + (currentAmmo*baseDamage);
+    return statusString;
   }
 }
