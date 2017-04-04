@@ -11,12 +11,14 @@ public class AircraftTest {
     testF16.refill(100);
     System.out.println(testF16.get_status());
 
-    Carrier testCarrier = new Carrier(1000);
+    Carrier testCarrier = new Carrier(100);
     testCarrier.add_aircraft("F35");
     testCarrier.add_aircraft("F35");
     testCarrier.add_aircraft("F16");
     testCarrier.add_aircraft("F16");
-    System.out.println(testCarrier.getAircraftList().size());
+    testCarrier.fill();
+    System.out.println(testCarrier.getStoreOfAmmo());
+
 
 
 
