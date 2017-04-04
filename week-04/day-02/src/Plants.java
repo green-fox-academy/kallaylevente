@@ -1,7 +1,7 @@
 public class Plants {
-  public double waterlevel;
-  public String color;
-  public double waterLimit;
+  private double waterlevel;
+  private String color;
+  private double waterLimit;
 
   public Plants(double waterlevel,String color) {
     this.waterlevel = waterlevel;
@@ -28,5 +28,27 @@ public class Plants {
     this.waterlevel = this.waterlevel + wateramount;
   }
 
+  public double getWaterlevel() {
+    return waterlevel;
+  }
 
+  public void setWaterlevel(double waterlevel) {
+    this.waterlevel = waterlevel;
+  }
+
+  public String getColor() {
+    return color;
+  }
+
+  public void setColor(String color) {
+    this.color = color;
+  }
+
+  public double getWaterLimit() {
+    return waterLimit;
+  }
+
+  public void setWaterLimit(double waterLimit) {
+    this.waterLimit = waterLimit;
+  }
 }
