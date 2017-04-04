@@ -2,6 +2,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Carrier  {
+  public int getHealthPoint() {
+    return healthPoint;
+  }
+
+  public void setHealthPoint(int healthPoint) {
+    this.healthPoint = healthPoint;
+  }
+
   private int storeOfAmmo;
   private int healthPoint;
   private ArrayList<Aircraft> aircraftList ;
@@ -32,7 +40,7 @@ public class Carrier  {
     }
   }
 
-  public void fill() {
+  public void fill() {    //third case not done jet
     int ammmoNeeded = 0;
     for (int i = 0; i < this.aircraftList.size(); i++) {
       ammmoNeeded = ammmoNeeded  + aircraftList.get(i).track();
@@ -44,12 +52,19 @@ public class Carrier  {
         aircraftList.get(i).setCurrentAmmo(aircraftList.get(i).track());
       }
       this.storeOfAmmo = this.storeOfAmmo - ammmoNeeded;
-    } else {
-      
-
     }
 
+  }
 
+  public void fight(Carrier carrier) {
+    int damage = 0;
+    for (int i = 0; i < this.aircraftList.size(); i++) {
+      damage = damage + this.aircraftList.get(i).getCurrentAmmo() * this.aircraftList.get(i).getBaseDamage();
+    }
+    carrier.setHealthPoint(carrier.getHealthPoint() - damage);
+    if (carrier.getHealthPoint() <= 0 ) {
+      System.out.println("It's dead JIm :(");
+    }
   }
 
 }
