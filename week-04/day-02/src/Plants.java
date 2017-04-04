@@ -24,5 +24,9 @@ public class Plants {
     }
   }
 
+  public void watering(int wateramount) {
+    this.waterlevel = this.waterlevel + wateramount;
+  }
+
 
 }

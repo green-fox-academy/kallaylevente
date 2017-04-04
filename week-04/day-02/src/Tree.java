@@ -3,4 +3,9 @@ public class Tree extends Plants{
     super(waterlevel,color);
     waterLimit = 10;
   }
+
+  @Override
+  public void watering(int wateramount) {
+    this.waterlevel = this.waterlevel + (wateramount * 0.40);
+  }
 }

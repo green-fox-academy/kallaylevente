@@ -13,7 +13,11 @@ public class Garden {
       gardenPlants.add(testFlower);
       gardenPlants.add(testTree);
 
-      
+
+    System.out.println(testTree.waterlevel);
+    testTree.watering(3);
+    System.out.println(testTree.waterlevel);
+
 
 
 
