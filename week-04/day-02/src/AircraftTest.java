@@ -18,8 +18,8 @@ public class AircraftTest {
     testCarrier.add_aircraft("F16");
     testCarrier.fill();
     System.out.println(testCarrier.getStoreOfAmmo());
-    testCarrier.fight(testCarrier);
-    
+    testCarrier.get_status();
+
 
 
 

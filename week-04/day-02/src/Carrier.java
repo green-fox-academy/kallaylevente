@@ -67,4 +67,20 @@ public class Carrier  {
     }
   }
 
+  public void get_status() {
+    int count = aircraftList.size();
+    int damage = 0;
+    for (int i = 0; i < this.aircraftList.size(); i++) {
+      damage = damage + this.aircraftList.get(i).getCurrentAmmo() * this.aircraftList.get(i).getBaseDamage();
+    }
+    System.out.println("Aircraft count: " + count + ", Ammo Storage: " + getStoreOfAmmo() + ", Total Damage: " + damage);
+    System.out.println("Aircrafts: ");
+    for (int i = 0; i < this.aircraftList.size(); i++) {
+      System.out.println(aircraftList.get(i).get_status());
+    }
+
+
+
+  }
+
 }
