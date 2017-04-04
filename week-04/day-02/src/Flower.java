@@ -5,7 +5,7 @@ public class Flower extends Plants {
   }
 
   @Override
-  public void watering(int wateramount) {
+  public void watering(double wateramount) {
     this.waterlevel = this.waterlevel + (wateramount * 0.75);
   }
 }

@@ -24,7 +24,7 @@ public class Plants {
     }
   }
 
-  public void watering(int wateramount) {
+  public void watering(double wateramount) {
     this.waterlevel = this.waterlevel + wateramount;
   }
 
