@@ -6,5 +6,14 @@ public class CoolGreenfoxApp {
 
     Student myStudent = new Student();
     myStudent.introduce();
+    myStudent.skipDays(5);
+    myStudent.introduce();
+
+
+    Mentor mYmentor = new Mentor();
+    mYmentor.introduce();
+    mYmentor.setLevel("Junior");
+    mYmentor.introduce();
+
   }
 }
