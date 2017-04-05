@@ -12,6 +12,7 @@ public class AircraftTest {
     System.out.println(testF16.get_status());
     System.out.println("my type is" + testF35.get_type(testF35));
 
+
     Carrier testCarrier = new Carrier(100);
     testCarrier.add_aircraft("F35");
     testCarrier.add_aircraft("F35");
