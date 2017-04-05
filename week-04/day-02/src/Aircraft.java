@@ -57,9 +57,15 @@ public class Aircraft {
     return ammoStack;
   }
 
-  public String get_type(){
-    typeof = "Aircraft";
-    return typeof;
+  public String get_type(Aircraft aircraft){
+        if (aircraft instanceof F35) {
+          typeof = "F35";
+      return typeof;
+    } else if (aircraft instanceof F16) {
+          typeof = "F16";
+          return typeof;
+        }
+    return "aircraft";
   }
 
   public String get_status() {
