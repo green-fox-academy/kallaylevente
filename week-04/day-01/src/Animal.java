@@ -1,4 +1,3 @@
-
 public class Animal {
   public int hunger;
   public int thirst;
