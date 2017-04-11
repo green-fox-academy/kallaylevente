@@ -58,8 +58,13 @@ public class TableArray {
 
   }
    public void fight(int x, int y) {
-     System.out.println(x);
-     System.out.println(y);
+    
+
+     for (int i = 0; i < minions.size(); i++) {
+       System.out.println(minions.get(i).posY);
+     }
+
+
    }
 
   public String  hud() {
