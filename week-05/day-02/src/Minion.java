@@ -1,11 +1,10 @@
 public class Minion{
-  static int HP ;
-  static int DP;
-  static int SP;
-  static int Level;
-  static int x;
-  static int y;
-
+   int HP ;
+   double DP;
+   int SP;
+   int Level;
+   int x;
+   int y;
 
   public Minion(int posX, int posY) {
 
