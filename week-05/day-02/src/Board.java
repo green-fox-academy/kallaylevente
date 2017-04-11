@@ -7,10 +7,11 @@ public class Board extends JComponent implements KeyListener {
 
   int testBoxX;
   int testBoxY;
+  String heroImage;
 
 
   public Board() {
-
+    heroImage = "hero-down.png";
     testBoxX = 0;
     testBoxY = 0;
     setBackground(Color.red);
@@ -61,8 +62,8 @@ public class Board extends JComponent implements KeyListener {
       }
     }
 
-
-    graphics.fillRect(testBoxX, testBoxY, 72, 72);
+    PositionedImage hero = new PositionedImage(heroImage,testBoxX,testBoxY);
+    hero.draw(graphics);
 
 
 
@@ -84,11 +85,15 @@ public class Board extends JComponent implements KeyListener {
     // When the up or down keys hit, we change the position of our box
     if (e.getKeyCode() == KeyEvent.VK_UP) {
       testBoxY -= 72;
+      heroImage = "hero-up.png";
     } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
       testBoxY += 72;
+      heroImage = "hero-down.png";
     } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
       testBoxX += 72;
+      heroImage = "hero-right.png";
     } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+      heroImage = "hero-left.png";
       testBoxX -= 72;
     }
     // and redraw to have a new picture with the new coordinates
