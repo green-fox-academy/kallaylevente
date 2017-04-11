@@ -50,10 +50,10 @@ public class Board extends JComponent implements KeyListener {
       {0, 1, 0, 1, 0, 1, 0, 0, 0, 0},
     };
     // here you have a 720x720 canvas
-    PositionedImage wallImage = new PositionedImage("wall.png",0,0);
+    PositionedImage wallImage = new PositionedImage("wall.png", 0, 0);
 
-    for (int i = 0; i <  wallPosition.length; i++) {
-      for (int j = 0; j < wallPosition[i].length ; j++) {
+    for (int i = 0; i < wallPosition.length; i++) {
+      for (int j = 0; j < wallPosition[i].length; j++) {
         if (wallPosition[i][j] == 1) {
           wallImage.posY = (i * 72);
           wallImage.posX = (j * 72);
@@ -62,7 +62,17 @@ public class Board extends JComponent implements KeyListener {
       }
     }
 
-    PositionedImage hero = new PositionedImage(heroImage,testBoxX,testBoxY);
+
+    if (testBoxX < 0) {
+      testBoxX = testBoxX + 72;
+    } else if (testBoxY < 0 ) {
+      testBoxY = testBoxY +72;
+    } else if (testBoxX > 719) {
+      testBoxX = testBoxX - 72;
+    } else if (testBoxY > 719) {
+      testBoxY = testBoxY - 72;
+    }
+    PositionedImage hero = new PositionedImage(heroImage, testBoxX, testBoxY);
     hero.draw(graphics);
 
 
