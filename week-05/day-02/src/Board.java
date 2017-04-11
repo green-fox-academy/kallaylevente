@@ -1,21 +1,17 @@
-import javafx.geometry.Pos;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
 
 public class Board extends JComponent implements KeyListener {
-
   int testBoxX;
   int testBoxY;
   String heroImage;
   int currentLocationX = testBoxX;
   int currentLocationY = testBoxY;
+  int heroX =0 ;
+  int heroY = 0;
   TableArray tableArray = new TableArray();
-
-
 
   public Board() {
     heroImage = "hero-down.png";
@@ -28,21 +24,7 @@ public class Board extends JComponent implements KeyListener {
   @Override
   public void paint(Graphics graphics) {
     super.paint(graphics);
-
-    // you can create and draw an image using the class below e.g.
-    PositionedImage floor = new PositionedImage("floor.png", 0, 0);
-    for (int i = 0; i < 10; i++) {
-      floor.draw(graphics);
-      for (int j = 0; j < 9; j++) {
-        floor.posY = floor.posY + 72;
-        floor.draw(graphics);
-      }
-      floor.posX = floor.posX + 72;
-      floor.posY = 0;
-    }
-
-
-
+    floorPaint(graphics);
 
     PositionedImage wallImage = new PositionedImage("wall.png", 0, 0);
     for (int i = 0; i < tableArray.getWallPosition().length; i++) {
@@ -59,19 +41,17 @@ public class Board extends JComponent implements KeyListener {
         if (tableArray.getWallPosition()[i][j] == 2) {
           int skeletonY = (i * 72);
           int skeletonX = (j * 72);
-          Skeleton skeleton = new Skeleton("skeleton.png",skeletonX,skeletonY);
+          PositionedImage skeleton = new PositionedImage("skeleton.png",skeletonX,skeletonY);
           skeleton.draw(graphics);
         }
         if (tableArray.getWallPosition()[i][j] == 3) {
           int skeletonY = (i * 72);
           int skeletonX = (j * 72);
-          Boss boss = new Boss("boss.png",skeletonX,skeletonY);
+          PositionedImage boss = new PositionedImage("boss.png",skeletonX,skeletonY);
           boss.draw(graphics);
         }
       }
     }
-
-
 
     if (testBoxX < 0) {
       testBoxX = testBoxX + 72;
@@ -82,19 +62,17 @@ public class Board extends JComponent implements KeyListener {
     } else if (testBoxY > 719) {
       testBoxY = testBoxY - 72;
     }
-    int heroCounter = 0;
 
-    Hero hero = new Hero(heroImage, testBoxX, testBoxY);
-
-
-
+    PositionedImage hero = new PositionedImage(heroImage, testBoxX, testBoxY);
     hero.draw(graphics);
     currentLocationX = testBoxX;
     currentLocationY = testBoxY;
+    heroX = currentLocationX/72;
+    heroY = currentLocationY/72;
 
-    String hud = ("Hero " + hero.getLevel() + "| HP: " + hero.getHP() + "| DP: " + hero.getDP() + "| SP: " + hero.getSP());
-    graphics.drawString(hud,720,320);
 
+   //String hud = ;
+   //graphics.drawString(hud,720,320);
 
   }
 
@@ -113,6 +91,7 @@ public class Board extends JComponent implements KeyListener {
   public void keyReleased(KeyEvent e) {
     // When the up or down keys hit, we change the position of our box
     if (e.getKeyCode() == KeyEvent.VK_UP) {
+
       testBoxY -= 72;
       heroImage = "hero-up.png";
     } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
@@ -127,5 +106,18 @@ public class Board extends JComponent implements KeyListener {
     }
     // and redraw to have a new picture with the new coordinates
     repaint();
+  }
+
+  public void floorPaint(Graphics graphics){
+  PositionedImage floor = new PositionedImage("floor.png", 0, 0);
+    for (int i = 0; i < 10; i++) {
+      floor.draw(graphics);
+      for (int j = 0; j < 9; j++) {
+        floor.posY = floor.posY + 72;
+        floor.draw(graphics);
+      }
+      floor.posX = floor.posX + 72;
+      floor.posY = 0;
+    }
   }
 }
