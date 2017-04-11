@@ -16,6 +16,7 @@ public class Board extends JComponent implements KeyListener {
   TableArray tableArray = new TableArray();
 
 
+
   public Board() {
     heroImage = "hero-down.png";
     testBoxX = 0;
@@ -39,7 +40,10 @@ public class Board extends JComponent implements KeyListener {
       floor.posX = floor.posX + 72;
       floor.posY = 0;
     }
-    graphics.drawString("this is a test",720,320);
+
+
+
+
     PositionedImage wallImage = new PositionedImage("wall.png", 0, 0);
     for (int i = 0; i < tableArray.getWallPosition().length; i++) {
       for (int j = 0; j < tableArray.getWallPosition()[i].length; j++) {
@@ -68,6 +72,7 @@ public class Board extends JComponent implements KeyListener {
     }
 
 
+
     if (testBoxX < 0) {
       testBoxX = testBoxX + 72;
     } else if (testBoxY < 0) {
@@ -77,10 +82,18 @@ public class Board extends JComponent implements KeyListener {
     } else if (testBoxY > 719) {
       testBoxY = testBoxY - 72;
     }
+    int heroCounter = 0;
+
     Hero hero = new Hero(heroImage, testBoxX, testBoxY);
+
+
+
     hero.draw(graphics);
     currentLocationX = testBoxX;
     currentLocationY = testBoxY;
+
+    String hud = ("Hero " + hero.getLevel() + "| HP: " + hero.getHP() + "| DP: " + hero.getDP() + "| SP: " + hero.getSP());
+    graphics.drawString(hud,720,320);
 
 
   }
