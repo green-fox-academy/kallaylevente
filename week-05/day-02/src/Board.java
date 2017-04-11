@@ -2,12 +2,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 
 public class Board extends JComponent implements KeyListener {
 
   int testBoxX;
   int testBoxY;
   String heroImage;
+  int currentLocationX = testBoxX;
+  int currentLocationY = testBoxY;
 
 
   public Board() {
@@ -37,6 +40,8 @@ public class Board extends JComponent implements KeyListener {
       image.posY = 0;
     }
 
+
+
     int[][] wallPosition = new int[][]{{0, 0, 0, 1, 0, 1, 0, 0, 0, 0},
       {0, 0, 0, 1, 0, 1, 0, 1, 1, 0},
       {0, 1, 1, 1, 0, 1, 0, 1, 1, 0},
@@ -50,7 +55,11 @@ public class Board extends JComponent implements KeyListener {
       {0, 1, 0, 1, 0, 1, 0, 0, 0, 0},
     };
     // here you have a 720x720 canvas
+
+
     PositionedImage wallImage = new PositionedImage("wall.png", 0, 0);
+
+
 
     for (int i = 0; i < wallPosition.length; i++) {
       for (int j = 0; j < wallPosition[i].length; j++) {
@@ -58,9 +67,15 @@ public class Board extends JComponent implements KeyListener {
           wallImage.posY = (i * 72);
           wallImage.posX = (j * 72);
           wallImage.draw(graphics);
+          if (testBoxX == wallImage.posX && testBoxY == wallImage.posY) {
+            testBoxY = currentLocationY;
+            testBoxX = currentLocationX;
+          }
+
         }
       }
     }
+
 
 
     if (testBoxX < 0) {
@@ -75,6 +90,8 @@ public class Board extends JComponent implements KeyListener {
     PositionedImage hero = new PositionedImage(heroImage, testBoxX, testBoxY);
     hero.draw(graphics);
 
+    currentLocationX = testBoxX;
+    currentLocationY = testBoxY;
 
 
   }
