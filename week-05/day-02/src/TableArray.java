@@ -50,9 +50,6 @@ public class TableArray {
       }
     } while (counter < 1);
 
-
-
-
   }
 
   public Minion fight(int y, int x) {

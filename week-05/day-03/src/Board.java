@@ -12,12 +12,14 @@ public class Board extends JComponent implements KeyListener {
   Map map;
   List<GameObject> aList = new ArrayList<>();
   Hero myHero ;
+  Skeleton mySkeleton;
 
   public Board() {
     testBoxX = 300;
     testBoxY = 300;
     map = new Map();
     myHero = new Hero(0,0,map);
+    mySkeleton = new Skeleton(0,0,true);
 
 
     // set the size of your draw board

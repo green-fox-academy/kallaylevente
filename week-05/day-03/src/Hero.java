@@ -9,6 +9,9 @@ public class Hero extends GameObject {
   public Hero(int posX, int posY,Map map) {
     super(posX, posY, "assets/hero-down.png");
     this.map = map;
+    this.HP = 20 + (3 *((int) (Math.random() * 6) + 1));
+    this.DP = 2 * ((int) (Math.random() * 6) + 1);
+    this.SP = 5 + ((int) (Math.random() * 6) + 1);
 
   }
 
