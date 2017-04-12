@@ -13,6 +13,11 @@ public class Board extends JComponent implements KeyListener {
   List<GameObject> aList = new ArrayList<>();
   Hero myHero ;
   Skeleton mySkeleton;
+  int skeletonMoveCounter;
+  List<Skeleton> skeletonList = new ArrayList<>();
+  int d4 ;
+  int forCounter;
+
 
   public Board() {
     testBoxX = 300;
@@ -20,6 +25,12 @@ public class Board extends JComponent implements KeyListener {
     map = new Map();
     myHero = new Hero(0,0,map);
     mySkeleton = new Skeleton(0,0,true);
+    aList = map.getGameObjectList();
+    aList.add(myHero);
+    skeletonMoveCounter = 0;
+    skeletonList = map.getSkeletonList();
+    forCounter = 0;
+
 
 
     // set the size of your draw board
@@ -29,28 +40,17 @@ public class Board extends JComponent implements KeyListener {
 
   @Override
   public void paint(Graphics graphics) {
-
     super.paint(graphics);
 
-    aList = map.getGameObjectList();
-    aList.add(myHero);
 
 
     for (GameObject temp: aList) {
-
       PositionedImage tempImage = new PositionedImage(temp.getCostume(),temp.getPosX() * 72,temp.getPosY() * 72);
       tempImage.draw(graphics);
-
     }
-
-
-    // here you have a 720x720 canvas
-    // you can create and draw an image using the class below e.g.
 
   }
 
-
-  // To be a KeyListener the class needs to have these 3 methods in it
   @Override
   public void keyTyped(KeyEvent e) {
 
@@ -75,6 +75,15 @@ public class Board extends JComponent implements KeyListener {
       myHero.moveLeft();
     }
     // and redraw to have a new picture with the new coordinates
+
+
+    if (skeletonMoveCounter == 1) {
+        skeletonMoveCounter = 0;
+      d4 = ((int) (Math.random() * 4) + 1);
+      
+
+    } else skeletonMoveCounter ++;
+
     repaint();
   }
 }

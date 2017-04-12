@@ -43,6 +43,7 @@ public class Hero extends GameObject {
     }
   }
 
+
   public boolean isHero() {
     return isHero;
   }

@@ -3,6 +3,7 @@ import java.util.List;
 
 public class Map {
   List<GameObject> GameObjectList = new ArrayList<>();
+  List<Skeleton> skeletonList = new ArrayList<>();
 
   public List<GameObject> getGameObjectList() {
     return GameObjectList;
@@ -23,6 +24,10 @@ public class Map {
   };
 
 
+  public List<Skeleton> getSkeletonList() {
+    return skeletonList;
+  }
+
   public Map() {
     for (int i = 0; i < map.length; i++) {
       for (int j = 0; j < map[i].length; j++) {
@@ -37,9 +42,12 @@ public class Map {
     do if (counter < 3) {
       int posX = (int) (Math.random() * 10);
       int posY = (int) (Math.random() * 10);
+
       if (map[posX][posY] == 0) {
         counter = counter + 1;
-        GameObjectList.add(new Skeleton(posX,posY,true));
+        Skeleton skeleton = new Skeleton(posX,posY,true);
+        GameObjectList.add(skeleton);
+        skeletonList.add(skeleton);
       }
     } while (counter < 3);
 
