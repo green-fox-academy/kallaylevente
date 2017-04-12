@@ -85,10 +85,17 @@ public class Board extends JComponent implements KeyListener {
           d4 = (int) (Math.random() * 4);
           if (d4 == 1 && (skeletonList.get(i).getPosX() < 9) && !map.isThereWall(skeletonList.get(i).getPosX()+1,skeletonList.get(i).getPosY())){
             skeletonList.get(i).setPosX(skeletonList.get(i).getPosX()+1);
+            forCounter++;
           } else if (d4 == 2 && (skeletonList.get(i).getPosX() > 0) && !map.isThereWall(skeletonList.get(i).getPosX()-1,skeletonList.get(i).getPosY())) {
             skeletonList.get(i).setPosX(skeletonList.get(i).getPosX() - 1);
+            forCounter++;
+          } else if (d4 == 3 && (skeletonList.get(i).getPosY() > 0) && !map.isThereWall(skeletonList.get(i).getPosX(),skeletonList.get(i).getPosY() - 1)) {
+            skeletonList.get(i).setPosY(skeletonList.get(i).getPosY() - 1);
+            forCounter++;
+          }else if (d4 == 4 && (skeletonList.get(i).getPosY() < 9) && !map.isThereWall(skeletonList.get(i).getPosX(),skeletonList.get(i).getPosY() + 1)) {
+            skeletonList.get(i).setPosY(skeletonList.get(i).getPosY() + 1);
+            forCounter++;
           }
-          forCounter++;
         }while (forCounter == 0);
       }
     } else skeletonMoveCounter ++;
