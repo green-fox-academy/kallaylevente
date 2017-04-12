@@ -6,6 +6,7 @@ public class Boss extends Minion {
     Level = 1;
     HP = 2 * Level * (((int) (Math.random() * 6) + 1) +((int) (Math.random() * 6) + 1)) ;
     DP = (Level % 2) * ((int) (Math.random() * 6) + 1) + (((int) (Math.random() * 6) + 1) / 2 );
+    CurrentHP = HP;
     SP =  Level * (((int) (Math.random() * 6) + 1) + Level );
   }
 }

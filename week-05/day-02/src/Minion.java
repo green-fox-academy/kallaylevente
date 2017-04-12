@@ -7,6 +7,8 @@ public class Minion {
   int Level;
   int x;
   int y;
+  int ID;
+  int CurrentHP;
 
   public int getX() {
     return x;
@@ -20,5 +22,6 @@ public class Minion {
   public Minion(int posX, int posY) {
     this.posX = posX;
     this.posY = posY;
+    CurrentHP = HP;
   }
 }

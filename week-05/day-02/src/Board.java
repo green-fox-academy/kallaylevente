@@ -63,8 +63,7 @@ public class Board extends JComponent implements KeyListener {
     heroX = currentLocationX / 72;
     heroY = currentLocationY / 72;
 
-    graphics.drawString(tableArray.hud(),720,360);
-
+    graphics.drawString(tableArray.hud(), 720, 360);
 
 
   }
@@ -86,10 +85,10 @@ public class Board extends JComponent implements KeyListener {
       if (heroY == 0) {
         testBoxY = currentLocationY;
         heroImage = "hero-up.png";
-      } else if (tableArray.getMap()[heroY - 1][heroX] == 2) {
+      } else if (tableArray.getMap()[heroY - 1][heroX] == 2 || tableArray.getMap()[heroY - 1][heroX] == 3) {
         testBoxY -= 72;
         heroImage = "hero-up.png";
-        tableArray.fight(heroY - 1,heroX);
+        tableArray.fight(heroY - 1, heroX);
       } else
         testBoxY -= 72;
       heroImage = "hero-up.png";
@@ -97,10 +96,10 @@ public class Board extends JComponent implements KeyListener {
       if (heroY == 9) {
         testBoxY = currentLocationY;
         heroImage = "hero-down.png";
-      } else if (tableArray.getMap()[heroY + 1][heroX] == 2) {
+      } else if (tableArray.getMap()[heroY + 1][heroX] == 2 || tableArray.getMap()[heroY + 1][heroX] == 3) {
         testBoxY += 72;
         heroImage = "hero-down.png";
-        tableArray.fight(heroY + 1,heroX);
+        tableArray.fight(heroY + 1, heroX);
       } else {
         testBoxY += 72;
         heroImage = "hero-down.png";
@@ -109,10 +108,10 @@ public class Board extends JComponent implements KeyListener {
       if (heroX == 9) {
         testBoxX = currentLocationX;
         heroImage = "hero-right.png";
-      } else if (tableArray.getMap()[heroY][heroX + 1] == 2) {
+      } else if (tableArray.getMap()[heroY][heroX + 1] == 2 || tableArray.getMap()[heroY][heroX + 1] == 3) {
         testBoxX += 72;
         heroImage = "hero-right.png";
-        tableArray.fight(heroY,heroX + 1);
+        tableArray.fight(heroY, heroX + 1);
       } else {
         testBoxX += 72;
         heroImage = "hero-right.png";
@@ -121,20 +120,24 @@ public class Board extends JComponent implements KeyListener {
       if (heroX == 0) {
         testBoxX = currentLocationX;
         heroImage = "hero-left.png";
-      } else if (tableArray.getMap()[heroY][heroX - 1] == 2) {
+      } else if (tableArray.getMap()[heroY][heroX - 1] == 2 || tableArray.getMap()[heroY][heroX - 1] == 3) {
         testBoxX -= 72;
         heroImage = "hero-left.png";
-        tableArray.fight(heroY,heroX - 1);
+        tableArray.fight(heroY, heroX - 1);
       } else {
         heroImage = "hero-left.png";
         testBoxX -= 72;
       }
+
+    } else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+
     }
     // and redraw to have a new picture with the new coordinates
     repaint();
   }
 
   public void floorPaint(Graphics graphics) {
+
     PositionedImage floor = new PositionedImage("floor.png", 0, 0);
     for (int i = 0; i < 10; i++) {
       floor.draw(graphics);
