@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Map {
   List<GameObject> GameObjectList = new ArrayList<>();
-  List<Skeleton> skeletonList = new ArrayList<>();
+  List<GameObject> monsterList = new ArrayList<>();
 
   public List<GameObject> getGameObjectList() {
     return GameObjectList;
@@ -24,8 +24,8 @@ public class Map {
   };
 
 
-  public List<Skeleton> getSkeletonList() {
-    return skeletonList;
+  public List<GameObject> getMonsterlist() {
+    return monsterList;
   }
 
   public Map() {
@@ -47,7 +47,7 @@ public class Map {
         counter = counter + 1;
         Skeleton skeleton = new Skeleton(posX,posY,true);
         GameObjectList.add(skeleton);
-        skeletonList.add(skeleton);
+        monsterList.add(skeleton);
       }
     } while (counter < 3);
 
@@ -56,7 +56,9 @@ public class Map {
       int posX = (int) (Math.random() * 10);
       int posY = (int) (Math.random() * 10);
       if (map[posX][posY] == 0) {
-        GameObjectList.add(new Boss(posX,posY,true));
+        Boss boss = new Boss(posX,posY,true);
+        GameObjectList.add(boss);
+        monsterList.add(boss);
         counter = counter + 1;
       }
     } while (counter < 1);
