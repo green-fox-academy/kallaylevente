@@ -71,6 +71,15 @@ public class Map {
 
   }
 
+  public boolean isThereMonster(int x,int y) {
+    for (int i = 0; i < monsterList.size(); i++) {
+       if  ((monsterList.get(i).getPosX() == x) && (monsterList.get(i).getPosY() == y)) {
+         return true;
+       }
+    }
+    return false;
+  }
+
 
 }
 
