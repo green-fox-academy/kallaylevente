@@ -17,10 +17,12 @@ public class Board extends JComponent implements KeyListener {
   List<GameObject> monsterList = new ArrayList<>();
   int d4;
   int forCounter;
+  int u,d,l,r;
 
 
 
   public Board() {
+
     testBoxX = 300;
     testBoxY = 300;
     map = new Map();
@@ -72,26 +74,39 @@ public class Board extends JComponent implements KeyListener {
       myHero.moveLeft();
     }
 
+
     if (skeletonMoveCounter == 1) {
       skeletonMoveCounter = 0;
       for (int i = 0; i < monsterList.size(); i++) {
         forCounter = 0;
+        u = 0;
+        d = 0;
+        r = 0;
+        l = 0;
         do {
           d4 = (int) (Math.random() * 4 + 1);
           if (d4 == 1 && (monsterList.get(i).getPosX() < 9) && !map.isThereWall(monsterList.get(i).getPosX() + 1, monsterList.get(i).getPosY()) && !isThereMonster(monsterList.get(i).getPosX() + 1, monsterList.get(i).getPosY()) && !isThereHero(monsterList.get(i).getPosX() + 1, monsterList.get(i).getPosY()) ) {
             monsterList.get(i).setPosX(monsterList.get(i).getPosX() + 1);
             forCounter++;
-          } else if (d4 == 2 && (monsterList.get(i).getPosX() > 0) && !map.isThereWall(monsterList.get(i).getPosX() - 1, monsterList.get(i).getPosY()) && !isThereMonster(monsterList.get(i).getPosX() - 1, monsterList.get(i).getPosY()) && !isThereHero(monsterList.get(i).getPosX() - 1, monsterList.get(i).getPosY())  ) {
+          } else if(d4 == 1) {
+            u = 1;
+          }else if (d4 == 2 && (monsterList.get(i).getPosX() > 0) && !map.isThereWall(monsterList.get(i).getPosX() - 1, monsterList.get(i).getPosY()) && !isThereMonster(monsterList.get(i).getPosX() - 1, monsterList.get(i).getPosY()) && !isThereHero(monsterList.get(i).getPosX() - 1, monsterList.get(i).getPosY())  ) {
             monsterList.get(i).setPosX(monsterList.get(i).getPosX() - 1);
             forCounter++;
-          } else if (d4 == 3 && (monsterList.get(i).getPosY() > 0) && !map.isThereWall(monsterList.get(i).getPosX(), monsterList.get(i).getPosY() - 1) && !isThereMonster(monsterList.get(i).getPosX(), monsterList.get(i).getPosY()- 1) && !isThereHero(monsterList.get(i).getPosX(), monsterList.get(i).getPosY() + 1)  ) {
+          } else if(d4 == 2) {
+            d = 1;
+          }else if (d4 == 3 && (monsterList.get(i).getPosY() > 0) && !map.isThereWall(monsterList.get(i).getPosX(), monsterList.get(i).getPosY() - 1) && !isThereMonster(monsterList.get(i).getPosX(), monsterList.get(i).getPosY()- 1) && !isThereHero(monsterList.get(i).getPosX(), monsterList.get(i).getPosY() + 1)  ) {
             monsterList.get(i).setPosY(monsterList.get(i).getPosY() - 1);
             forCounter++;
+          }else if(d4 == 3) {
+            l = 1;
           } else if (d4 == 4 && (monsterList.get(i).getPosY() < 9) && !map.isThereWall(monsterList.get(i).getPosX(), monsterList.get(i).getPosY() + 1) && !isThereMonster(monsterList.get(i).getPosX(), monsterList.get(i).getPosY() + 1) && !isThereHero(monsterList.get(i).getPosX(), monsterList.get(i).getPosY() + 1) ) {
             monsterList.get(i).setPosY(monsterList.get(i).getPosY() + 1);
             forCounter++;
-          }else forCounter++;
-        } while (forCounter == 0);
+          }else if(d4 == 4) {
+            r = 1;
+          }
+        } while (forCounter == 0 && isFour1(u,d,l,r));
       }
     } else skeletonMoveCounter++;
 
@@ -114,6 +129,10 @@ public class Board extends JComponent implements KeyListener {
     }
     return false;
   }
+
+public boolean isFour1(int u, int d, int l, int r) {
+    return (u == 0 || d == 0 || l == 0 || r == 0);
+}
 
 
 }
