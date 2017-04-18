@@ -8,7 +8,7 @@ abstract class StringedInstrument extends Instrument {
   }
 
   private int numberOfStrings;
-  final String formatForPlay = "%s, a %d-stringed instrument that %s\n";
+  private String formatForPlay = "%s, a %d-stringed instrument that %s\n";
   private String soundOfInstrument;
 
   public String getSoundOfInstrument() {
