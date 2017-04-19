@@ -6,7 +6,7 @@ public class SumTheArray {
     Double[] doubleArray = { 1.1, 2.2, 3.3, 4.4 };
 
     System.out.println(arraySummer(intArray,5));
-    System.out.println(arraySummer(doubleArray,5));
+    System.out.println(arraySummer(doubleArray,5) == 0 ? "Given number is bigger than length of the array" : arraySummer(doubleArray,5) );
   }
 
   public static <T extends Number>  double arraySummer( T[] inputArray, int length){
@@ -16,7 +16,7 @@ public class SumTheArray {
         sum = sum + inputArray[i].doubleValue();
       }
     }catch (IndexOutOfBoundsException e) {
-      System.out.println("Given number is bigger than the length of the given array");
+      sum = 0;
 
     }
     return sum;
