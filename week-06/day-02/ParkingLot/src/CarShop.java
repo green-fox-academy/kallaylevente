@@ -54,7 +54,7 @@ public class CarShop {
 
     for (Map.Entry<CarType, Integer> type : typeFrequency.entrySet()) {
       if (max == type.getValue()) {
-        System.out.println(type.getKey().toString());
+        System.out.println("The most common car type is: " + type.getKey().toString());
       }
     }
 
