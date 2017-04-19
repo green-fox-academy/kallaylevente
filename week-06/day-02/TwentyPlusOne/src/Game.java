@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Game {
@@ -20,14 +19,14 @@ public class Game {
         System.out.println(heroValue);
       }
 
-    } while (!currentScannerValue.equals("n"));
+    } while (!currentScannerValue.equals("n") && heroValue <= 21);
 
-    if (dealerValue >= heroValue) {
+    if (dealerValue >= heroValue || heroValue > 21) {
       System.out.println("The house wins!");
     } else {
       System.out.println("You win!");
     }
-    
+
   }
 
   public static int pointsOfTheDealer() {
