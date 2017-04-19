@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.List;
 
 public class SortTheArray {
@@ -12,6 +13,8 @@ public class SortTheArray {
 
   public static <T extends Number> void listSorter(T[] inputList) {
     double[] answerArray = new double[inputList.length];
+    Arrays.sort(inputList);
+    
 
     for (int i = 0; i < inputList.length; i++) {
       answerArray[i] = inputList[(inputList.length - 1 - i)].doubleValue();
