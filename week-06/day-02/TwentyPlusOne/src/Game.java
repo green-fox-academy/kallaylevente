@@ -11,5 +11,11 @@ public class Game {
 
     System.out.println(testDeck.getCardList().size());
 
+    
+
+  }
+
+  public static int pointsOfTheDealer() {
+    return (int)(15 + Math.random() * 7);
   }
 }
