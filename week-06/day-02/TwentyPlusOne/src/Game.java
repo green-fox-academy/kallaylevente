@@ -1,21 +1,36 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Game {
   public static void main(String[] args) {
     Deck testDeck = new Deck();
+    int dealerValue = pointsOfTheDealer();
+    System.out.printf("The hous is at: %d \n", dealerValue);
+    Scanner scanner = new Scanner(System.in);
 
-    testDeck.shuffle();
-    System.out.println(testDeck.pullFirst().toString());
-    System.out.println(testDeck.pullLast().toString());
-    System.out.println(testDeck.pullRandom().toString());
+    String currentScannerValue ;
+    int heroValue = 0;
+    do {
+      System.out.printf("Your current value is: %d \n", heroValue);
+      System.out.println("Do you want to pull more?");
+      currentScannerValue = scanner.nextLine();
+      if (currentScannerValue.equals("y")) {
 
-    System.out.println(testDeck.getCardList().size());
+        heroValue = heroValue + testDeck.pullRandom().getRank().getRankpoints();
+        System.out.println(heroValue);
+      }
 
+    } while (!currentScannerValue.equals("n"));
+
+    if (dealerValue >= heroValue) {
+      System.out.println("The house wins!");
+    } else {
+      System.out.println("You win!");
+    }
     
-
   }
 
   public static int pointsOfTheDealer() {
-    return (int)(15 + Math.random() * 7);
+    return (int) (15 + Math.random() * 7);
   }
 }
