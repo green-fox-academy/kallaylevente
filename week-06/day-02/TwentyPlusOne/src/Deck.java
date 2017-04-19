@@ -30,4 +30,23 @@ public class Deck {
     Collections.shuffle(cardList);
   }
 
+  public Card pullFirst() {
+    Card tempCard = cardList.get(0);
+    cardList.remove(0);
+    return tempCard;
+  }
+
+  public Card pullLast() {
+    Card tempCard = cardList.get(cardList.size()-1);
+    cardList.remove(cardList.size()-1);
+    return tempCard;
+  }
+
+  public Card pullRandom() {
+    int randomCard = (int)(Math.random() * 52);
+    Card tempCard = cardList.get(randomCard);
+    cardList.remove(randomCard);
+    return tempCard;
+  }
+
 }

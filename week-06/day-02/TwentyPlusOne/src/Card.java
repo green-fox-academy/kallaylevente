@@ -9,6 +9,6 @@ public class Card {
   }
 
   public String toString() {
-    return ("suit " + suit + " rank " + rank);
+    return (suit + "  " + rank);
   }
 }
