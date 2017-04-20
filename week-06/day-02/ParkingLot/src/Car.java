@@ -1,5 +1,6 @@
 
 public class Car {
+
   private CarType type;
   private CarColor color;
 
