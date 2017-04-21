@@ -26,11 +26,13 @@ public class Main {
       if (options.has("r")) {
         System.out.println("`r` was given with the argument " + options.valueOf("r"));
         todoApp.getCommand("-r");
+        todoApp.getCommand("-r").execute();
       }
 
       if (options.has("c")) {
         System.out.println("`c` was given with the argument " + options.valueOf("c"));
         todoApp.getCommand("-c");
+        todoApp.getCommand("-c").execute();
       }
     } catch (joptsimple.OptionException e){
       System.out.println("No arguments given.");

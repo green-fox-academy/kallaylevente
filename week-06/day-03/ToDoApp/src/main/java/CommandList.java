@@ -12,9 +12,9 @@ public class CommandList {
   }
 
   public void fillListWithCommands(List<Command> listOfCommands){
-    listOfCommands.add(new Add(arguments[1]));
-    listOfCommands.add(new Remove());
-    listOfCommands.add(new Check());
+    listOfCommands.add(new Add(arguments));
+    listOfCommands.add(new Remove(arguments));
+    listOfCommands.add(new Check(arguments));
     listOfCommands.add(new ListItems());
 
   }

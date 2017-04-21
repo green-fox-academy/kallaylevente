@@ -2,13 +2,16 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 abstract class Command {
   public String parameterIndex1;
   public String paramterIndex2;
-  public String parameter;
+  public String parameter0;
+  public String[] parameter;
   public List<ListItem> todoList;
 
   abstract void execute();
@@ -16,24 +19,19 @@ abstract class Command {
   public Command() {
   }
 
-  public Command(String parameterIndex1) {
-    this.parameterIndex1 = parameterIndex1;
-  }
-
   public String getParameter() {
-    return parameter;
+    return parameter0;
   }
 
-  public void LoadToDos(){
-
-  }
 
   public static List<ListItem> extractListItem(List<String> rawLines) {
     List<ListItem> listItems = new ArrayList<>();
     for (String lines : rawLines) {
       String[] splittedLines = lines.split(";");
       String task = splittedLines[0];
-      listItems.add(new ListItem(task));
+      boolean isDone = splittedLines[1].equals("1");
+      LocalDate date = LocalDate.parse(splittedLines[2], DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+      listItems.add(new ListItem(task,isDone,date));
     }
     return listItems;
   }
@@ -49,4 +47,25 @@ abstract class Command {
     }
     return rawLines;
   }
+
+  public static void writeToFile(List<ListItem> listItems) {
+    List<String> data = new ArrayList<>();
+    for (ListItem item : listItems) {
+      data.add(item.toFile());
+    }
+    Path path = Paths.get("todos.csv");
+    try {
+      Files.write(path, data);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  public  void printItemsFromFile() {
+    for (int i = 0; i < todoList.size(); i++) {
+      System.out.println(i+1 + " - "  + todoList.get(i).toString());
+    }
+  }
+
+
 }
