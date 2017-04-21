@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class Check extends Command{
   private int chekParameter;
 
@@ -16,6 +18,7 @@ public class Check extends Command{
   @Override
   void execute() {
     todoList.get(chekParameter - 1).setDone(true);
+    todoList.get(chekParameter - 1).setDate(LocalDate.now());
     writeToFile(todoList);
     printItemsFromFile();
   }

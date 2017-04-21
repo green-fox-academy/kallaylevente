@@ -9,19 +9,13 @@ import java.util.List;
 
 abstract class Command {
   public String parameterIndex1;
-  public String paramterIndex2;
   public String parameter0;
-  public String[] parameter;
   public List<ListItem> todoList;
-
-  abstract void execute();
 
   public Command() {
   }
 
-  public String getParameter() {
-    return parameter0;
-  }
+  abstract void execute();
 
 
   public static List<ListItem> extractListItem(List<String> rawLines) {
@@ -67,5 +61,8 @@ abstract class Command {
     }
   }
 
+  public String getParameter() {
+    return parameter0;
+  }
 
 }
