@@ -1,0 +1,8 @@
+.isKing {
+  color: gold;
+}
+
+.notAKing {
+  text-decoration-color: black;
+}
+
