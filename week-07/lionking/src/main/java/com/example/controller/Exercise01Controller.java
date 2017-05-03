@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class Exercise01Controller {
 
-  @RequestMapping("/")
+  @RequestMapping("/exercise01")
   public String addBankAccount(Model model) {
     BankAccount bankAcc = new BankAccount("Simba", "2000", "lion");
     model.addAttribute("BankAccount", bankAcc);
