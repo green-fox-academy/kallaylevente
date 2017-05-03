@@ -6,8 +6,8 @@
   <meta charset="utf-8" />
 </head>
 <body>
-<p th:text="'name of the account holder: ' + ${BankAccount.name}"> This is a span </p>
-<p th:text="'type of the account holder: ' + ${BankAccount.animalType}"> This is a span </p>
-<p th:text="'balance of the account holder: ' + ${#numbers.formatDecimal(BankAccount.balance, 0, 'COMMA', 2, 'POINT')}"> This is a span </p>
+<p th:text="${BankAccount.name}"> This is a span </p>
+<p th:text="${BankAccount.animalType}"> This is a span </p>
+<p th:text="${#numbers.formatDecimal(BankAccount.balance, 0, 'COMMA', 2, 'POINT')} + ' zebra'"> This is a span </p>
 </body>
 </html>
