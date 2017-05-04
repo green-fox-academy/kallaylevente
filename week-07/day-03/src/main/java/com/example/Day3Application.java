@@ -11,6 +11,9 @@ public class Day3Application implements CommandLineRunner {
   @Autowired
   HelloWorld hella;
 
+  @Autowired
+  BlueColor blueish;
+
 	public static void main(String[] args) {
 	  SpringApplication.run(Day3Application.class, args);
 	}
@@ -19,5 +22,6 @@ public class Day3Application implements CommandLineRunner {
   public void run(String... args) throws Exception {
     hella.setMessage("Hello world");
     hella.getMessage();
+    blueish.printColor();
   }
 }
