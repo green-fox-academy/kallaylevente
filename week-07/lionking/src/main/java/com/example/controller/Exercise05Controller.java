@@ -21,11 +21,11 @@ public class Exercise05Controller {
   }
 
   public void fillBankAccountList(List<BankAccount> accountList) {
-    accountList.add(new BankAccount("Pumba", "1000", "warthog",true));
-    accountList.add(new BankAccount("Timon", "500", "meerkat",true));
-    accountList.add(new BankAccount("Fred", "2500", "antilop",true));
-    accountList.add(new BankAccount("Sterve", "750", "coyote",false));
-    accountList.add(new BankAccount("Simba", "2000", "lion",true));
+    accountList.add(new BankAccount("Pumba", 1000, "warthog",true));
+    accountList.add(new BankAccount("Timon", 500, "meerkat",true));
+    accountList.add(new BankAccount("Fred", 2500, "antilop",true));
+    accountList.add(new BankAccount("Sterve", 750, "coyote",false));
+    accountList.add(new BankAccount("Simba", 2000, "lion",true));
   }
 
 }

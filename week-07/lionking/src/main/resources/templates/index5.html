@@ -10,9 +10,18 @@
   <span th:class="(${account.name} == 'Simba') ? isKing : notAKing ">
   <span th:text="${account.name}"> This is a span </span>
   <span th:text="${account.animalType}"> This is a span </span>
-  <span th:text="${#numbers.formatDecimal(account.balance, 0, 'COMMA', 2, 'POINT')} + ' zebra'"> This is a span </span>
+  <span th:text="${#numbers.formatDecimal(account.balance, 1, 2, 'POINT')} + ' zebra'"> This is a span </span>
   <span th:if="${account.isGoodGuy()} == true ">goodguy</span>
   <span th:unless="${account.isGoodGuy()} == true ">badguy</span>
+    <span th:switch="${account.isGoodGuy()}">
+      <span th:case="true">Goodguy by case</span>
+      <span th:case="false">Badguy by case</span>
+  </span>
+    <form action="#" th:action="@{/exercise05}" th:object="${account}" method="post">
+                <button th:id="'table_entry_childs_button_' + ${account.balance}" type="submit">
+                    <i>increase balance</i>
+                </button>
+    </form>
   </span>
 </p>
 </body>

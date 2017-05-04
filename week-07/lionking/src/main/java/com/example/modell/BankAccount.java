@@ -11,7 +11,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class BankAccount {
   private String name;
-  private String balance;
+  private float balance;
   private String animalType;
   private boolean isGoodGuy;
 
