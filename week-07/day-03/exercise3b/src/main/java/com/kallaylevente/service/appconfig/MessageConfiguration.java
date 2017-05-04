@@ -1,4 +1,4 @@
-package com.kallaylevente.appconfig;
+package com.kallaylevente.service.appconfig;
 
 
 import com.kallaylevente.service.EmailService;
@@ -15,7 +15,7 @@ public class MessageConfiguration {
     return new MessageProceeder();
   }
 
-  @Bean
+ // @Bean
   public EmailService emailService() {
     return new EmailService();
   }

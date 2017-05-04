@@ -8,12 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class MessageProceeder {
 
   @Autowired
-  EmailService email;
+  MessageService messageService;
 
-  @Autowired
-  TwitterService twitt;
-
-
+  public void processMessage(String msg, String address) {
+    messageService.sendMessage(msg,address);
+  }
 
 
 }
