@@ -1,6 +1,11 @@
 package com.kallaylevente;
 
 
+import static java.time.format.DateTimeFormatter.RFC_1123_DATE_TIME;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +44,12 @@ public class ListOfThings {
   }
 
   public void addToHistoryList(String history) {
+    LocalDateTime date = LocalDateTime.now();
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy. MM. dd. HH:mm:ss");
+    String text = date.format(formatter);
+    history = text + "  " + history;
     historyList.add(history);
+
   }
 
   public List<String> getFoodList() {
