@@ -28,6 +28,8 @@ public class MainController {
 
   @RequestMapping("/information")
   public String information(Model model) {
+    listOfThings.latestFiveActions();
+    model.addAttribute("list", listOfThings);
     model.addAttribute("Fox", fox);
     return "information";
   }

@@ -37,5 +37,11 @@
   <span th:text="${tricks}"> eszement </span>
 </p>
 
+<h1>Action history</h1>
+<p th:each="actions: ${list.getLastFiveActions()}">
+  <span th:text="${actions}"> eszement </span>
+</p>
+
+
 </body>
 </html>

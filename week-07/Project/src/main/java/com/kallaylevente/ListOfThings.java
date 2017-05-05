@@ -14,12 +14,14 @@ public class ListOfThings {
   List<String> drinkList;
   List<String> trickList;
   List<String> historyList;
+  List<String> lastFiveActions;
 
   public ListOfThings() {
     this.foodList = new ArrayList<>();
     this.drinkList = new ArrayList<>();
     this.trickList = new ArrayList<>();
     this.historyList = new ArrayList<>();
+    this.lastFiveActions = new ArrayList<>();
     foodList.add("potato");
     foodList.add("carrott");
     foodList.add("tomato");
@@ -67,4 +69,21 @@ public class ListOfThings {
   public List<String> getHistoryList() {
     return historyList;
   }
+
+   public void latestFiveActions() {
+    lastFiveActions.clear();
+    if (historyList.size() < 6) {
+      for (int i = 0; i < historyList.size() ; i++) {
+        lastFiveActions.add(historyList.get(i));
+      }
+    } else
+      for (int i = 0; i < 5 ; i++) {
+        lastFiveActions.add(historyList.get(historyList.size() - 1 - i));
+      }
+    }
+
+  public List<String> getLastFiveActions() {
+    return lastFiveActions;
+  }
 }
+
