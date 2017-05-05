@@ -15,4 +15,9 @@ public class AppConfig {
     return new Fox();
   }
 
+  @Bean
+  public ListOfThings getListOfThings() {
+    return new ListOfThings();
+  }
+
 }

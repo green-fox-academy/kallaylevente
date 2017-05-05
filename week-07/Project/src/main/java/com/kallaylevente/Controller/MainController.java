@@ -1,10 +1,12 @@
 package com.kallaylevente.Controller;
 
 import com.kallaylevente.Fox;
+import com.kallaylevente.ListOfThings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Created by Levente on 2017. 05. 04..
@@ -15,10 +17,44 @@ public class MainController {
   @Autowired
   Fox fox;
 
+  @Autowired
+  ListOfThings listOfThings;
+
   @RequestMapping("/")
   public String index(Model model){
     model.addAttribute("Fox", fox);
     return "index";
   }
+
+  @RequestMapping("/information")
+  public String information(Model model){
+    model.addAttribute("Fox", fox);
+    return "information";
+  }
+
+  @RequestMapping("/nutritionStore")
+  public String nutrition(Model model) {
+    model.addAttribute("list", listOfThings);
+    return "nutritionStore";
+  }
+
+  @RequestMapping("/changeNutrition")
+  public String addFood(Model model, @RequestParam("another_food") String foodParam, @RequestParam("another_drink") String drinkParam){
+    fox.setFood(foodParam);
+    fox.setDrink(drinkParam);
+    return "redirect:/information";
+  }
+
+  @RequestMapping("/trickcenter")
+  public String TrickCenter(Model model) {
+    return "trickcenter";
+  }
+
+  @RequestMapping("/addTrick")
+  public String addTrick(Model model, @RequestParam("another_trick") String param) {
+    fox.addTrick(param);
+    return "redirect:/information";
+  }
+
 
 }

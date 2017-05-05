@@ -13,10 +13,13 @@ public class Fox {
   private String food;
   private String drink;
 
+
+
   public Fox() {
     this.name = "Levi";
     this.food = "Hamburger";
     this.drink = "Beer";
+
     trickList = new ArrayList<>();
     fillList();
   }
@@ -38,8 +41,20 @@ public class Fox {
   }
 
   public void fillList() {
-    /*trickList.add("Play Hearthstone");
-    trickList.add("Kettlebell");*/
+    trickList.add("Play Hearthstone");
+    trickList.add("Kettlebell");
+  }
+
+  public void setFood(String food) {
+    this.food = food;
+  }
+
+  public void setDrink(String drink) {
+    this.drink = drink;
+  }
+
+  public void addTrick(String trick) {
+    trickList.add(trick);
   }
 
 }

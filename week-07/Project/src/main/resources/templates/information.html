@@ -25,10 +25,13 @@
 </ul>
 <img  src="greenfox.png" alt="foxImage"></img>
 
-<p >Intro</p>
+<p th:text="'This is Mr. ' + ${Fox.getName()} + '. Currently living on ' + ${Fox.getFood()} + ' and ' + ${Fox.getDrink()} + '.' + ' He knows ' + ${Fox.getTrickList().size()} + ' tricks.'" >Intro</p>
 
 <h1>Known Tricks</h1>
-
+<p th:if="${Fox.getTrickList().size() == 0} == true"> You know no tricks, yet. Go and learn some.</p>
+<p th:each="tricks: ${Fox.getTrickList()}">
+  <span th:text="${tricks}"> eszement </span>
+</p>
 
 </body>
 </html>
