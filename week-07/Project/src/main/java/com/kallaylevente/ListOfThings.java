@@ -47,7 +47,7 @@ public class ListOfThings {
 
   public void addToHistoryList(String history) {
     LocalDateTime date = LocalDateTime.now();
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy. MM. dd. HH:mm:ss");
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy. MMMM. dd. HH:mm:ss");
     String text = date.format(formatter);
     history = text + "  " + history;
     historyList.add(history);
