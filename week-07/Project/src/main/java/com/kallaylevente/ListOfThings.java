@@ -30,7 +30,7 @@ public class ListOfThings {
     drinkList.add("coffee");
     trickList.add("Java programming");
     trickList.add("Use spring");
-    trickList.add("suck");
+    trickList.add("Walk the dog");
   }
 
   public void addFoodToList(String newFood) {

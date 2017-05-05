@@ -41,8 +41,8 @@ public class Fox {
   }
 
   public void fillList() {
-    trickList.add("Play Hearthstone");
-    trickList.add("Kettlebell");
+    /*trickList.add("Play Hearthstone");
+    trickList.add("Kettlebell");*/
   }
 
   public void setFood(String food) {
