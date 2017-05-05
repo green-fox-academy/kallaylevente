@@ -47,14 +47,21 @@ public class MainController {
 
   @RequestMapping("/trickcenter")
   public String TrickCenter(Model model) {
+    model.addAttribute("list", listOfThings);
+    model.addAttribute("Fox", fox);
     return "trickcenter";
   }
 
   @RequestMapping("/addTrick")
-  public String addTrick(Model model, @RequestParam("another_trick") String param) {
-    fox.addTrick(param);
-    return "redirect:/information";
+  public String addTrick(Model model, @RequestParam("newTrick") String param) {
+    listOfThings.addTrickToList(param);
+    return "redirect:/trickcenter";
   }
 
+  @RequestMapping("/learnTrick")
+  public String learnNewTrick(Model model, @RequestParam("another_trick") String param) {
+    fox.addTrick(param);
+    return "redirect:/trickcenter";
+  }
 
 }

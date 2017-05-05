@@ -19,6 +19,9 @@ public class ListOfThings {
     drinkList.add("water");
     drinkList.add("sprite");
     drinkList.add("coffee");
+    trickList.add("Java programming");
+    trickList.add("Use spring");
+    trickList.add("suck");
   }
 
   public void addFoodToList(String newFood) {
@@ -30,7 +33,7 @@ public class ListOfThings {
   }
 
   public void addTrickToList(String newTrick) {
-    foodList.add(newTrick);
+    trickList.add(newTrick);
   }
 
   public List<String> getFoodList() {

@@ -24,17 +24,29 @@
   </li>
 </ul>
 
+
 <form method="post" action="/addTrick">
+  <input type="text"  name="newTrick" placeholder="newtrick"></input>
+  <button type="submit">add</button>
+</form>
+
+
+<form method="post" action="/learnTrick">
   <span>Tricks</span>
   <select name="another_trick">
-    <option>Java programming</option>
-    <option>Make coffe</option>
-    <option>Run fast</option>
+    <option th:each="listitem : ${list.getTrickList()}"
+            th:value="${listitem}"
+            th:text="${listitem}">
+    </option>
   </select>
-
   <input type="submit" value="learn"/>
-
 </form>
+
+<h1>Known Tricks</h1>
+<p th:if="${Fox.getTrickList().size() == 0} == true"> You know no tricks, yet. Go and learn some.</p>
+<p th:each="tricks: ${Fox.getTrickList()}">
+  <span th:text="${tricks}"> eszement </span>
+</p>
 
 
 </body>
