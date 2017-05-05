@@ -8,11 +8,13 @@ public class ListOfThings {
   List<String> foodList;
   List<String> drinkList;
   List<String> trickList;
+  List<String> historyList;
 
   public ListOfThings() {
     this.foodList = new ArrayList<>();
     this.drinkList = new ArrayList<>();
     this.trickList = new ArrayList<>();
+    this.historyList = new ArrayList<>();
     foodList.add("potato");
     foodList.add("carrott");
     foodList.add("tomato");
@@ -36,6 +38,10 @@ public class ListOfThings {
     trickList.add(newTrick);
   }
 
+  public void addToHistoryList(String history) {
+    historyList.add(history);
+  }
+
   public List<String> getFoodList() {
     return foodList;
   }
@@ -46,5 +52,9 @@ public class ListOfThings {
 
   public List<String> getTrickList() {
     return trickList;
+  }
+
+  public List<String> getHistoryList() {
+    return historyList;
   }
 }
