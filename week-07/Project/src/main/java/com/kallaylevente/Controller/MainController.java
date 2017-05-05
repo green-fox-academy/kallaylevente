@@ -61,6 +61,11 @@ public class MainController {
   @RequestMapping("/learnTrick")
   public String learnNewTrick(Model model, @RequestParam("another_trick") String param) {
     fox.addTrick(param);
+    for (int i = 0; i < listOfThings.getTrickList().size() ; i++) {
+      if (param.equals(listOfThings.getTrickList().get(i))) {
+        listOfThings.getTrickList().remove(i);
+      }
+    }
     return "redirect:/trickcenter";
   }
 
