@@ -30,17 +30,19 @@
   <button type="submit">add</button>
 </form>
 
-
-<form method="post" action="/learnTrick">
-  <span>Tricks</span>
-  <select name="another_trick">
-    <option th:each="listitem : ${list.getTrickList()}"
-            th:value="${listitem}"
-            th:text="${listitem}">
-    </option>
-  </select>
-  <input type="submit" value="learn"/>
-</form>
+<span th:if="${list.getTrickList().size()} == 0">No tricks to learn</span>
+<span th:unless="${list.getTrickList().size()} == 0">
+  <form method="post" action="/learnTrick">
+    <span >Tricks</span>
+    <select name="another_trick">
+      <option th:each="listitem : ${list.getTrickList()}"
+              th:value="${listitem}"
+              th:text="${listitem}">
+      </option>
+    </select>
+    <input type="submit" value="learn"/>
+  </form>
+</span>
 
 <h1>Known Tricks</h1>
 <p th:if="${Fox.getTrickList().size() == 0} == true"> You know no tricks, yet. Go and learn some.</p>
