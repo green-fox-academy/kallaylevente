@@ -69,4 +69,16 @@ public class MainController {
     return "redirect:/trickcenter";
   }
 
+  @RequestMapping("/addFood")
+  public String addFood(Model model, @RequestParam("newFood") String param) {
+    listOfThings.addFoodToList(param);
+    return "redirect:/nutritionStore";
+  }
+
+  @RequestMapping("/addDrink")
+  public String addDrink(Model model, @RequestParam("newDrink") String param) {
+    listOfThings.addDrinkToList(param);
+    return "redirect:/nutritionStore";
+  }
+
 }

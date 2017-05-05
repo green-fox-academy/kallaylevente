@@ -29,7 +29,7 @@ public class ListOfThings {
   }
 
   public void addDrinkToList(String newDrink) {
-    foodList.add(newDrink);
+    drinkList.add(newDrink);
   }
 
   public void addTrickToList(String newTrick) {
