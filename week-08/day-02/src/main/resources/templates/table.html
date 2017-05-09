@@ -8,7 +8,7 @@
 <body>
 <h1>TODOS FOR TODAY:</h1>
 
-<a href="addTodo.html">Add new Todo</a>
+<a href="todo/addTodo.html">Add new Todo</a>
 
 <table>
     <tr>
@@ -22,6 +22,7 @@
       <td th:text="${todo.getTitle()}"></td>
       <td th:name="isDone" th:text="${todo.isActive()}"></td>
       <td th:text="${todo.isUrgent()}"></td>
+      <td><a th:href="@{'/todo/delete/' + ${todo.getID()}}" >delete</a></td>
     </tr>
 </table>
 </body>

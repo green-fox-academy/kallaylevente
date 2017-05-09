@@ -6,6 +6,8 @@ import com.greenfox.ToDoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -19,15 +21,8 @@ public class TodoController {
   @Autowired
   ToDoService toDoService;
 
-  @RequestMapping(value = {"/", "/list"})
+  @RequestMapping(value = {"", "/list"})
   public String list(Model model) {
-    model.addAttribute("todos", toDoService.list());
-
-    return "todolist";
-  }
-
-  @RequestMapping("/table")
-  public String listTable(Model model) {
     model.addAttribute("todos", toDoRepo.findAll());
     return "table";
   }
@@ -49,12 +44,22 @@ public class TodoController {
     return "addTodo";
   }
 
-  @RequestMapping(value = "/addingToDo")
+  @PostMapping(value = "/addingToDo")
   public  String addingToDo(Model model, @RequestParam("newToDo") String param) {
     toDoRepo.save(new Todo(param));
     model.addAttribute("todos", toDoRepo.findAll());
     return "table";
   }
+
+  @RequestMapping(value = "/delete/{id}")
+  public String delete(Model model,
+                      @PathVariable("id") String id ){
+    long longDeletID = Long.parseLong(id);
+    toDoRepo.delete(longDeletID);
+    model.addAttribute("todos", toDoRepo.findAll());
+    return "table";
+  }
+
 
 
 }
