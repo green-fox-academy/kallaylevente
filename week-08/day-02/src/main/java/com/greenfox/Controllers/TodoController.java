@@ -70,13 +70,14 @@ public class TodoController {
 
   @RequestMapping(value = "/editToDo/{id}")
   public String editToDo(Model model,
-                          @RequestParam("newTitle") String title,
-                          @RequestParam(name = "active", required = false) String active,
-                          @RequestParam(name = "urgent", required = false) String urgent,
+                          @RequestParam(name = "newTitle", required = false) String title,
+                          @RequestParam(name = "active", required = false) boolean active,
+                          @RequestParam(name = "urgent", required = false) boolean urgent,
                           @PathVariable("id") String id) {
     long longID = Long.parseLong(id);
     toDoRepo.findOne(longID).setTitle(title);
-    System.out.println(title);
+    toDoRepo.findOne(longID).setActive(active);
+    toDoRepo.findOne(longID).setUrgent(urgent);
     model.addAttribute("todos", toDoRepo.findAll());
     return "table";
   }
