@@ -1,0 +1,11 @@
+h1 {
+  font-size: 50px;
+}
+
+td {
+  border: solid black 1px;
+}
+
+.addTodoH1 {
+  font-size: 30px;
+}
