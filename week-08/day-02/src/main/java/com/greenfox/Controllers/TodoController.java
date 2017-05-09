@@ -60,6 +60,25 @@ public class TodoController {
     return "redirect:/todo/list";
   }
 
+  @RequestMapping(value = "/edit/{id}")
+  public String edit(Model model,
+                          @PathVariable("id") String id ) {
+    long longID = Long.parseLong(id);
+    model.addAttribute("todos", toDoRepo.findOne(longID));
+    return "edit";
+  }
 
+  @RequestMapping(value = "/editToDo/{id}")
+  public String editToDo(Model model,
+                          @RequestParam("newTitle") String title,
+                          @RequestParam(name = "active", required = false) String active,
+                          @RequestParam(name = "urgent", required = false) String urgent,
+                          @PathVariable("id") String id) {
+    long longID = Long.parseLong(id);
+    toDoRepo.findOne(longID).setTitle(title);
+    System.out.println(title);
+    model.addAttribute("todos", toDoRepo.findAll());
+    return "table";
+  }
 
 }
