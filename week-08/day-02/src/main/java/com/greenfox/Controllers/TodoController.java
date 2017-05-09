@@ -57,7 +57,7 @@ public class TodoController {
     long longDeletID = Long.parseLong(id);
     toDoRepo.delete(longDeletID);
     model.addAttribute("todos", toDoRepo.findAll());
-    return "table";
+    return "redirect:/todo/list";
   }
 
 
