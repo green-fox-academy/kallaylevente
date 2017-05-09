@@ -75,9 +75,12 @@ public class TodoController {
                           @RequestParam(name = "urgent", required = false) boolean urgent,
                           @PathVariable("id") String id) {
     long longID = Long.parseLong(id);
-    toDoRepo.findOne(longID).setTitle(title);
+    if (!title.equals("")) {
+      toDoRepo.findOne(longID).setTitle(title);
+    }
     toDoRepo.findOne(longID).setActive(active);
     toDoRepo.findOne(longID).setUrgent(urgent);
+    toDoRepo.save(toDoRepo.findOne(longID));
     model.addAttribute("todos", toDoRepo.findAll());
     return "table";
   }

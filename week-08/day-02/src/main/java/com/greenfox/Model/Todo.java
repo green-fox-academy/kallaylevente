@@ -17,7 +17,7 @@ public class Todo {
   private long ID;
 
   private String title;
-  private boolean isUrgent = false;
+  private boolean urgent = false;
   private boolean active = false;
 
   public Todo(String title) {
@@ -40,11 +40,11 @@ public class Todo {
   }
 
   public boolean isUrgent() {
-    return isUrgent;
+    return urgent;
   }
 
   public void setUrgent(boolean urgent) {
-    isUrgent = urgent;
+    this.urgent = urgent;
   }
 
   public boolean isActive() {
