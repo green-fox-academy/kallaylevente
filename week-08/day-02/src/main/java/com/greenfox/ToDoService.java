@@ -23,4 +23,8 @@ public class ToDoService {
     return toDoRepository.findAllByActiveFalse();
   }
 
+  public Iterable<Todo> sortByUrgent() {
+    return toDoRepository.findAllByUrgentTrue();
+  }
+
 }

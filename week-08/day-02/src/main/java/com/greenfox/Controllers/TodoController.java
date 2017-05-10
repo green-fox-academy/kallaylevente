@@ -85,4 +85,10 @@ public class TodoController {
     return "table";
   }
 
+  @RequestMapping("/urgent")
+  public String urgent(Model model) {
+    model.addAttribute("todos",toDoService.sortByUrgent());
+    return "urgent";
+  }
+
 }

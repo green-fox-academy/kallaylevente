@@ -13,4 +13,6 @@ public interface ToDoRepository extends CrudRepository<Todo, Long> {
 
   List<Todo> findAllByActiveFalse();
 
+  List<Todo> findAllByUrgentTrue();
+
 }
