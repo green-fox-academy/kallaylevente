@@ -2,8 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>Thymeleaf Exercise #</title>
-  <link rel="stylesheet" th:href="@{/table.css}" />
-  <meta charset="utf-8" />
+  <link rel="stylesheet" th:href="@{/table.css}"/>
+  <meta charset="utf-8"/>
 </head>
 <body>
 <h1>TODOS FOR TODAY:</h1>
@@ -11,20 +11,28 @@
 <a href="/todo/addTodo">Add new Todo</a>
 
 <table>
-    <tr>
-      <th>ID</th>
-      <th>ACTION</th>
-      <th>DONE</th>
-      <th>URGENT</th>
-    </tr>
-    <tr th:each="todo: ${todos}">
-      <td th:text="${todo.getID()}"></td>
-      <td th:text="${todo.getTitle()}"></td>
-      <td th:name="isDone" th:text="${todo.isActive()}"></td>
-      <td th:text="${todo.isUrgent()}"></td>
-      <td><a th:href="@{'/todo/delete/' + ${todo.getID()}}" >delete</a></td>
-      <td><a th:href="@{'/todo/edit/' + ${todo.getID()}}">edit</a></td>
-    </tr>
+  <tr>
+    <th>ID</th>
+    <th>ACTION</th>
+    <th>DONE</th>
+    <th>URGENT</th>
+  </tr>
+  <tr th:each="todo: ${todos}">
+    <td th:text="${todo.getID()}"></td>
+    <td th:text="${todo.getTitle()}"></td>
+    <td th:name="isDone" th:text="${todo.isActive()}"></td>
+    <td th:text="${todo.isUrgent()}"></td>
+    <td><a th:href="@{'/todo/delete/' + ${todo.getID()}}">delete</a></td>
+    <td><a th:href="@{'/todo/edit/' + ${todo.getID()}}">edit</a></td>
+  </tr>
 </table>
+
+<form action="/todo/sort">
+  <select th:name="sortParam">
+    <option  th:value="urgent">sort by urgent</option>
+    <option  th:value="active">sort by activity</option>
+    <input type="submit" value="sort"/>
+  </select>
+</form>
 </body>
 </html>

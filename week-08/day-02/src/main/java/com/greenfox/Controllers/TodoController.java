@@ -27,7 +27,7 @@ public class TodoController {
     return "table";
   }
 
-  @RequestMapping(value = "/sort")
+ /* @RequestMapping(value = "/sort")
   public String sort(Model model,
                       @RequestParam(name = "isActive", required = false, defaultValue = "false") String description ) {
     if (description.equals("true")) {
@@ -37,7 +37,7 @@ public class TodoController {
     }
 
     return "todolist";
-  }
+  }*/
 
   @RequestMapping(value = "/addTodo")
   public String addToDo(Model model) {
@@ -89,6 +89,18 @@ public class TodoController {
   public String urgent(Model model) {
     model.addAttribute("todos",toDoService.sortByUrgent());
     return "urgent";
+  }
+
+  @RequestMapping("/sort")
+  public String sort(Model model,
+                      @RequestParam(name = "sortParam", required = false) String param){
+    if (param.equals("urgent")){
+      model.addAttribute("todos",toDoService.sortByUrgent());
+    } else if (param.equals("active")){
+      model.addAttribute("todos", toDoService.sort());
+    }
+
+    return "sort";
   }
 
 }
