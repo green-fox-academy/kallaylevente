@@ -1,5 +1,9 @@
 package com.greenfox.aze.reddit.model;
 
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,7 +20,7 @@ public class Post {
 
   private String title;
   private String href;
-  private String timeStamp;
+  private long timeStamp;
   private int score;
 
   public Long getID() {
@@ -39,13 +43,10 @@ public class Post {
     this.href = href;
   }
 
-  public String getTimeStamp() {
+  public long getTimeStamp() {
     return timeStamp;
   }
 
-  public void setTimeStamp(String timeStamp) {
-    this.timeStamp = timeStamp;
-  }
 
   public int getScore() {
     return score;
@@ -55,13 +56,19 @@ public class Post {
     this.score = score;
   }
 
-  public Post(String title, String href, String timeStamp) {
+  public Post(String title, String href) {
     this.title = title;
     this.href = href;
-    this.timeStamp = timeStamp;
+    this.timeStamp = timeStamp();
     this.score = 0;
+
   }
 
   public Post() {
+  }
+
+  public long timeStamp() {
+    Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+    return timestamp.getTime();
   }
 }

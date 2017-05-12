@@ -31,7 +31,7 @@ public class PostController {
 
   @RequestMapping(value = "/posts", method = RequestMethod.POST)
   public Post addPost(@RequestBody Post post) {
-    Post tempPost = new Post(post.getTitle(),post.getHref(),"stamp");
+    Post tempPost = new Post(post.getTitle(),post.getHref());
     redditPostRepository.save(tempPost);
 
     return tempPost;
@@ -42,6 +42,13 @@ public class PostController {
    Post temp = redditPostRepository.findOne(ID);
    temp.setScore(temp.getScore() + 1);
    return temp;
+  }
+
+  @RequestMapping(value = "posts/{id}/downvote", method = RequestMethod.PUT)
+  public Post downVoteOnPost(@PathVariable("id") long ID) {
+    Post temp = redditPostRepository.findOne(ID);
+    temp.setScore(temp.getScore() - 1);
+    return temp;
   }
 
 

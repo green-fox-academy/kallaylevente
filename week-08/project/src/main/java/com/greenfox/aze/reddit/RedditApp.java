@@ -19,9 +19,9 @@ public class RedditApp implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		redditPostRepository.save(new Post ("title", "href", "timestamp"));
-		redditPostRepository.save(new Post ("title", "href", "timestamp"));
-		redditPostRepository.save(new Post ("title", "href", "timestamp"));
+		redditPostRepository.save(new Post ("title", "href"));
+		redditPostRepository.save(new Post ("title", "href"));
+		redditPostRepository.save(new Post ("title", "href"));
 
 
 
