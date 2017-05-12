@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AppendRestController {
 
+
+
   @RequestMapping("/appenda/{appendable}")
   public Appendder append(@PathVariable("appendable")  String input) {
     return new Appendder(input);

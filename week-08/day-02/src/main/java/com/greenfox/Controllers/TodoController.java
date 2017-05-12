@@ -98,6 +98,8 @@ public class TodoController {
       model.addAttribute("todos",toDoService.sortByUrgent());
     } else if (param.equals("active")){
       model.addAttribute("todos", toDoService.sort());
+    } else if (param.equals("activeAndUrgent")) {
+      model.addAttribute("todos", toDoService.sortByUrgentAndActive());
     }
 
     return "sort";

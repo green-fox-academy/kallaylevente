@@ -2,15 +2,28 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>Thymeleaf Exercise #</title>
-  <link rel="stylesheet" th:href="@{/style.css}" />
+  <link rel="stylesheet" th:href="@{/table.css}" />
   <meta charset="utf-8" />
 </head>
 <body>
 <h1>Sorted todos:</h1>
 
-<p th:each="todo: ${todos}">
-  <span th:text="${todo}"> eszement </span>
-</p>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>ACTION</th>
+    <th>DONE</th>
+    <th>URGENT</th>
+  </tr>
+  <tr th:each="todo: ${todos}">
+    <td th:text="${todo.getID()}"></td>
+    <td th:text="${todo.getTitle()}"></td>
+    <td th:name="isDone" th:text="${todo.isActive()}"></td>
+    <td th:text="${todo.isUrgent()}"></td>
+  </tr>
+</table>
+
+<a href="/todo/list">Back</a>
 
 </body>
 </html>

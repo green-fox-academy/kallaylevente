@@ -8,9 +8,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class ToDoService {
 
-  private ToDoRepository toDoRepository;
-
   @Autowired
+  ToDoRepository toDoRepository;
+
+
   public ToDoService(ToDoRepository toDoRepository) {
     this.toDoRepository = toDoRepository;
   }
@@ -20,11 +21,15 @@ public class ToDoService {
   }
 
   public Iterable<Todo> sort() {
-    return toDoRepository.findAllByActiveFalse();
+    return toDoRepository.findAllByActiveTrue();
   }
 
   public Iterable<Todo> sortByUrgent() {
     return toDoRepository.findAllByUrgentTrue();
+  }
+
+  public Iterable<Todo> sortByUrgentAndActive() {
+    return toDoRepository.findAllByActiveTrueAndUrgentTrue();
   }
 
 }
