@@ -19,6 +19,8 @@ public class Todo {
   private String title;
   private boolean urgent = false;
   private boolean active = false;
+  private String author;
+  private String content;
 
   public Todo(String title) {
     this.title = title;

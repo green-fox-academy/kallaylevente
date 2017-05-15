@@ -10,6 +10,4 @@ public interface RedditPostRepository extends CrudRepository<Post, Long> {
 
   List<Post> findAllBy();
 
-
-
 }

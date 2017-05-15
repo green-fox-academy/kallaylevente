@@ -22,6 +22,8 @@ public class Post {
   private String href;
   private long timeStamp;
   private int score;
+  private String owner;
+  private int vote;
 
   public Long getID() {
     return ID;
@@ -70,5 +72,21 @@ public class Post {
   public long timeStamp() {
     Timestamp timestamp = new Timestamp(System.currentTimeMillis());
     return timestamp.getTime();
+  }
+
+  public String getOwner() {
+    return owner;
+  }
+
+  public void setOwner(String owner) {
+    this.owner = owner;
+  }
+
+  public int getVote() {
+    return vote;
+  }
+
+  public void setVote(int vote) {
+    this.vote = vote;
   }
 }
