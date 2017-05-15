@@ -41,8 +41,7 @@ public class GuardianControllerTest {
 
   @Test
   public void testSuccesfullGetGroot() throws Exception {
-    mockMvc.perform(get("/groot?message=somemessage")
-        .contentType(MediaType.APPLICATION_JSON))
+    mockMvc.perform(get("/groot?message=somemessage"))
         .andExpect(status().isOk())
         .andExpect(content().contentType(contentType))
         .andExpect(content()
