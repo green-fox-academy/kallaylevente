@@ -1,5 +1,6 @@
-package com.greenfox.grootController;
+package com.greenfox.yonduController;
 
+import static org.junit.Assert.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -23,7 +24,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @SpringBootTest(classes = Week9day1Application.class)
 @WebAppConfiguration
 @EnableWebMvc
-public class GuardianControllerTest {
+public class YonduControllerTest {
 
   private MediaType contentType = new MediaType(MediaType.APPLICATION_JSON.getType(),
       MediaType.APPLICATION_JSON.getSubtype(),
@@ -40,22 +41,25 @@ public class GuardianControllerTest {
   }
 
   @Test
-  public void testSuccesfullGetGroot() throws Exception {
-    mockMvc.perform(get("/groot?message=somemessage"))
+  public void testGetYondu() throws Exception {
+    mockMvc.perform(get("/yondu")
+        .param("distance", "100.0")
+        .param("time","10.0"))
         .andExpect(status().isOk())
         .andExpect(content().contentType(contentType))
         .andExpect(content()
-            .json("{\"received\": \"somemessage\", \"translated\": \"I am Groot!\"}", true));
+            .json("{\"distance\": \"100.0\", \"time\": \"10.0\", \"speed\": \"10.0\" }"));
   }
 
   @Test
-  public void testGetGrootWithoutPathVariable() throws Exception {
-    mockMvc.perform(get("/groot"))
+  public void testGetYonduWithoutParam() throws Exception {
+    mockMvc.perform(get("/yondu"))
         .andExpect(status().is4xxClientError())
         .andExpect(content().contentType(contentType))
         .andExpect(content()
-        .json("{\"error\": \"I am Groot!\"}", true));
+            .json("{\"error\": \"I am Groot!\"}", true));
   }
+
 
 
 }

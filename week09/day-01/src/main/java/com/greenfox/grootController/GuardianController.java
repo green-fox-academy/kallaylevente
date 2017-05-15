@@ -2,6 +2,7 @@ package com.greenfox.grootController;
 
 import com.greenfox.grootModel.Errormessage;
 import com.greenfox.grootModel.Groot;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MissingPathVariableException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -9,12 +10,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class GuardianController {
 
   @ExceptionHandler(MissingServletRequestParameterException.class)
+  @ResponseStatus(code = HttpStatus.I_AM_A_TEAPOT)
   public Errormessage missingPathVariableException() {
     Errormessage m = new Errormessage();
     return m;

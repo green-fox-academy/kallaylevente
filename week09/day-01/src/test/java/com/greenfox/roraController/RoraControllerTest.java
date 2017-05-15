@@ -1,5 +1,6 @@
-package com.greenfox.grootController;
+package com.greenfox.roraController;
 
+import static org.junit.Assert.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -23,7 +24,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @SpringBootTest(classes = Week9day1Application.class)
 @WebAppConfiguration
 @EnableWebMvc
-public class GuardianControllerTest {
+public class RoraControllerTest {
 
   private MediaType contentType = new MediaType(MediaType.APPLICATION_JSON.getType(),
       MediaType.APPLICATION_JSON.getSubtype(),
@@ -40,22 +41,12 @@ public class GuardianControllerTest {
   }
 
   @Test
-  public void testSuccesfullGetGroot() throws Exception {
-    mockMvc.perform(get("/groot?message=somemessage"))
+  public void testRocket()throws Exception {
+    mockMvc.perform(get("/rocket"))
         .andExpect(status().isOk())
         .andExpect(content().contentType(contentType))
         .andExpect(content()
-            .json("{\"received\": \"somemessage\", \"translated\": \"I am Groot!\"}", true));
+            .json("{\"caliber25\": 0, \"caliber30\": 0, \"caliber50\": 0, \"shipStatus\": \"empty\", \"ready\": false }"));
   }
-
-  @Test
-  public void testGetGrootWithoutPathVariable() throws Exception {
-    mockMvc.perform(get("/groot"))
-        .andExpect(status().is4xxClientError())
-        .andExpect(content().contentType(contentType))
-        .andExpect(content()
-        .json("{\"error\": \"I am Groot!\"}", true));
-  }
-
 
 }
