@@ -1,6 +1,8 @@
 package com.greenfox.roraController;
 
+import org.springframework.stereotype.Component;
 
+@Component
 public class Ship {
 
   private int caliber25;
@@ -65,10 +67,18 @@ public class Ship {
       this.ready = true;
       return "100%";
     } else
-      divide = (int)(temp / divide);
+      divide = (int)((temp / divide));
 
     return (String.valueOf(divide) + "%");
 
+  }
 
+  public void fillShip(String caliber, int amount) {
+    if (caliber.equals(".25")) {
+      this.caliber25 = this.caliber25 + amount;
+    } else if (caliber.equals(".30")) {
+      this.caliber30 = this.caliber30 + amount;
+    } else
+      this.caliber50 = this.caliber50 + amount;
   }
 }

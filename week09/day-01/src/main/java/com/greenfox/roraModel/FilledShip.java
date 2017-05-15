@@ -42,4 +42,24 @@ public class FilledShip {
   public void setReady(boolean ready) {
     this.ready = ready;
   }
+
+  public void fill(String caliber, int amount) {
+    double temp = 0;
+    this.received = caliber;
+    this.amount = this.amount + amount;
+    if (this.amount > 12500) {
+      this.shipStatus = "overloaded";
+      this.amount = 12500;
+    } else if (this.amount < 12500) {
+      this.ready = false;
+      temp = (((double) this.amount / 12500) * 100);
+      this.shipStatus = ((int )temp  + "%");
+    } else if (this.amount == 12500) {
+      this.shipStatus = "full";
+
+    } else {
+      this.ready = true;
+      this.shipStatus = ("100%");
+    }
+  }
 }

@@ -49,4 +49,27 @@ public class RoraControllerTest {
             .json("{\"caliber25\": 0, \"caliber30\": 0, \"caliber50\": 0, \"shipStatus\": \"empty\", \"ready\": false }"));
   }
 
+  @Test
+  public void testAfterFill() throws Exception {
+    mockMvc.perform(get("/rocket/fill")
+    .param("caliber", ".50")
+    .param("amount", "5000"))
+        .andExpect(status().isOk())
+        .andExpect(content().contentType(contentType))
+        .andExpect(content()
+            .json("{\"received\": \".50\", \"amount\": 5000, \"shipStatus\": \"40%\", \"ready\": false }"));
+
+  }
+
+  @Test
+  public void testRoraWithoutPathVariable() throws Exception {
+    mockMvc.perform(get("/rocket/fill"))
+        .andExpect(status().is4xxClientError())
+        .andExpect(content().contentType(contentType))
+        .andExpect(content()
+            .json("{\"error\": \"No caliber and amount added\"}", true));
+  }
+
+
+
 }
