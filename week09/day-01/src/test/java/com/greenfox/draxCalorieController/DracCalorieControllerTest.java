@@ -53,5 +53,22 @@ public class DracCalorieControllerTest {
 
   }
 
+  @Test
+  public void testAddAnItemToTheFoodList() throws Exception {
+    mockMvc.perform(get("/drax/add")
+    .param("name", "orange")
+        .param("amount","5")
+        .param("calorie", "150"))
+        .andExpect(status().isOk())
+        .andExpect(content().contentType(contentType))
+        .andExpect(content()
+            .json("[ {\"name\": \"apple\", \"amount\": 50, \"calorie\": 120 },"
+                + "{\"name\": \"pearl\", \"amount\": 25, \"calorie\": 150  },"
+                + "{\"name\" : \"melone\", \"amount\": 75, \"calorie\": 180 },"
+            + "{\"name\" : \"orange\", \"amount\": 5, \"calorie\": 150 }] "));
+
+
+  }
+
 
 }
