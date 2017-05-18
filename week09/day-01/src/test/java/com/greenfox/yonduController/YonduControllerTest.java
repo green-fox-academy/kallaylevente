@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
 import com.greenfox.Week9day1Application;
@@ -60,6 +61,15 @@ public class YonduControllerTest {
             .json("{\"error\": \"I am Groot!\"}", true));
   }
 
-
+  @Test
+  public void testGetYonduWith0Time() throws Exception {
+    mockMvc.perform(get("/yondu")
+        .param("distance", "100.0")
+        .param("time","0"))
+        .andExpect(status().isOk())
+        .andExpect(content().contentType(contentType))
+        .andExpect(content()
+            .json("{\"error\": \"Please give a positive number as time\"}", true));
+  }
 
 }

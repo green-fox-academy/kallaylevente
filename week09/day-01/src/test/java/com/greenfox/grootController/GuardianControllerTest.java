@@ -2,8 +2,10 @@ package com.greenfox.grootController;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
+import static org.hamcrest.Matchers.is;
 
 import com.greenfox.Week9day1Application;
 import java.nio.charset.Charset;
@@ -43,9 +45,15 @@ public class GuardianControllerTest {
   public void testSuccesfullGetGroot() throws Exception {
     mockMvc.perform(get("/groot?message=somemessage"))
         .andExpect(status().isOk())
-        .andExpect(content().contentType(contentType))
+        .andExpect(jsonPath("$.received", is("somemessage")))
+        .andExpect(jsonPath("$.translated", is("I am Groot!")));
+
+
+
+
+    /*.andExpect(content().contentType(contentType))
         .andExpect(content()
-            .json("{\"received\": \"somemessage\", \"translated\": \"I am Groot!\"}", true));
+            .json("{\"received\": \"somemessage\", \"translated\": \"I am Groot!\"}", true));*/
   }
 
   @Test
