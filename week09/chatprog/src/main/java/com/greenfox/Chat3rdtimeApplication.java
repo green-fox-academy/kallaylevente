@@ -11,10 +11,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Chat3rdtimeApplication  {
 
-
-
-
-
 	public static void main(String[] args) {
 		SpringApplication.run(Chat3rdtimeApplication.class, args);
 	}

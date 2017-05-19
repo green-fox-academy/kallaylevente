@@ -9,8 +9,8 @@ public class ErrorMessage {
   public ErrorMessage() {
   }
 
-  public ErrorMessage(String status, String message) {
-    this.status = status;
+  public ErrorMessage(String message) {
+    this.status = "error";
     this.message = message;
   }
 

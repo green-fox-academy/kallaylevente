@@ -1,8 +1,11 @@
 package com.greenfox.model;
 
 
+import javax.validation.constraints.NotNull;
+
 public class Client {
 
+  @NotNull
   private String id;
 
   public Client(String id) {

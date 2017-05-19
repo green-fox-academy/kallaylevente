@@ -10,10 +10,23 @@ public class LogMessage {
   private String logLevel;
   private String text;
 
+  public LogMessage() {
+    this.creationTime = LocalDateTime.now().toString();
 
-  public LogMessage(String path, String method) {
+  }
+
+  public LogMessage(String path, String method, String logLevel) {
     this.path = path;
     this.method = method;
+    this.logLevel = logLevel;
+    this.creationTime = LocalDateTime.now().toString();
+  }
+
+  public LogMessage(String path, String method, String logLevel, String text) {
+    this.path = path;
+    this.method = method;
+    this.logLevel = logLevel;
+    this.text = text;
     this.creationTime = LocalDateTime.now().toString();
   }
 
@@ -62,7 +75,7 @@ public class LogMessage {
     String vari = System.getenv("CHAT_APP_LOGLEVEL");
     if (vari.equals("INFO")) {
       System.out
-          .println(creationTime + " INFO Request " + path + " " + method + " ----------"
+          .println(this.creationTime + " INFO Request " + this.path + " " + this.method + " " + this.text + " ----------"
               + "------------------------------------------------------------------------------------------------"
               + "------------------------------------------------------------------------------------------");
 

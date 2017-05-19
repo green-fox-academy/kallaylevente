@@ -3,12 +3,16 @@ package com.greenfox.controller;
 import com.greenfox.model.ChatMessage;
 import com.greenfox.model.Client;
 import com.greenfox.model.ErrorMessage;
+import com.greenfox.model.RandomIdGenerator;
 import com.greenfox.model.ReceivedMessage;
 import com.greenfox.model.Status;
 import com.greenfox.repository.MessageRepository;
+import java.util.List;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.MissingServletRequestParameterException;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,26 +24,31 @@ import org.springframework.web.bind.annotation.RestController;
 public class MainRestController {
 
   @Autowired
-  MessageRepository messageRepository;
+  private RandomIdGenerator randomNumberGenerator;
 
-  @ExceptionHandler(MissingServletRequestParameterException.class)
+  @Autowired
+  private MessageRepository messageRepository;
+
+  @ExceptionHandler(MethodArgumentNotValidException.class)
   @ResponseStatus(code = HttpStatus.UNAUTHORIZED)
-  public ErrorMessage MissingBodyParamter() {
-    return new ErrorMessage("test","test2");
+  public ErrorMessage MissingBodyParamter(MethodArgumentNotValidException e) {
+    String temp = "Missing field(s): ";
+    List<FieldError> errors = e.getBindingResult().getFieldErrors();
+    for (FieldError error : errors) {
+      temp = temp.concat(error.getField() + ", ");
+    }
+    return new ErrorMessage(temp);
   }
 
+
   @RequestMapping(value = "/api/message/receive", method = RequestMethod.POST)
-  public Object receiveMessage(@RequestBody(required = true) ReceivedMessage receivedMessage ) {
-    ReceivedMessage receivedMessage1 = new ReceivedMessage(receivedMessage.getMessage(),
-        receivedMessage.getClient());
-    ChatMessage chatMessage = receivedMessage1.getMessage();
-    Long temp = 0L;
-    do {
-      temp = (long) (1000000 + (Math.random() * 1000000));
-    } while (messageRepository.exists(temp));
-    chatMessage.setRandomID(temp);
-    chatMessage.setChatUserName(receivedMessage1.getClient().getId());
+  public Object receiveMessage(@RequestBody @Valid ReceivedMessage receivedMessage) {
+    ChatMessage chatMessage = receivedMessage.getMessage();
+    Client client = receivedMessage.getClient();
+    chatMessage.setRandomID(randomNumberGenerator.generateRandomIdNumber(messageRepository));
     messageRepository.save(chatMessage);
     return new Status("ok");
   }
+
+
 }

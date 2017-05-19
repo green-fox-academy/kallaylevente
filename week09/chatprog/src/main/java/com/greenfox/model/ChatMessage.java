@@ -1,17 +1,30 @@
 package com.greenfox.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
 
 @Entity
 public class ChatMessage {
 
   @Id
+  @NotNull
+  @JsonProperty(value = "id")
   private Long RandomID;
+
+  @NotNull
+  @JsonProperty(value = "username")
   private String chatUserName;
+
+  @NotNull
   private String text;
+
+  @NotNull
+  private long timestamp;
 
   public long getTimestamp() {
     return timestamp;
@@ -21,10 +34,10 @@ public class ChatMessage {
     this.timestamp = timestamp;
   }
 
-  private long timestamp;
 
   public ChatMessage() {
   }
+
 
   public ChatMessage(Long randomID, String chatUserName, String text, long timestamp) {
     RandomID = randomID;

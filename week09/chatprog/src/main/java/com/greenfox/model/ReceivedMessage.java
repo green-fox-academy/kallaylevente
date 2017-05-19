@@ -1,9 +1,15 @@
 package com.greenfox.model;
 
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
 public class ReceivedMessage {
 
+  @Valid
   private ChatMessage message;
+
+  @Valid
   private Client client;
 
   public ReceivedMessage(ChatMessage message, Client client) {
