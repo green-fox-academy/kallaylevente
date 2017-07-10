@@ -1,6 +1,6 @@
 public enum Rank {
-  DEUCE(2), THREE(3), FOUR(4), FIVE(5), SIX(6), SEVEN(7), EIGHT(8), NINE(
-    9), TEN(10), JACK(10), QUEEN(10), KING(10), ACE(11);
+  DEUCE(12), THREE(11), FOUR(10), FIVE(9), SIX(8), SEVEN(7), EIGHT(6), NINE(
+    5), TEN(4), JACK(3), QUEEN(2), KING(1), ACE(0);
 
   private int Rankpoints;
 
