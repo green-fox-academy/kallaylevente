@@ -31,4 +31,9 @@ public class OnlyFirstArrayNumbersTest {
     assertEquals(new Integer(1), OnlyFirstArrayNumbers.returnFirstListsIntegerOnly(listA, listB).get(0));
   }
 
+  @Test
+  public void testListFiller() throws Exception {
+    assertEquals(4, OnlyFirstArrayNumbers.fillListAWithNumbers().size());
+  }
+
 }
