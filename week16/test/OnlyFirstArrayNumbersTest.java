@@ -27,7 +27,7 @@ public class OnlyFirstArrayNumbersTest {
   }
 
   @Test
-  public void testListFiller() throws Exception {
+  public void testReturnFirstListMethod() throws Exception {
     assertEquals(new Integer(1), OnlyFirstArrayNumbers.returnFirstListsIntegerOnly(listA, listB).get(0));
   }
 
