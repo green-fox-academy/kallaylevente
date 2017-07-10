@@ -4,16 +4,17 @@ import java.util.List;
 public class OnlyFirstArrayNumbers {
 
   public static void main(String[] args) {
-    List<Integer> listA =listA = fillListAWithNumbers();
+    List<Integer> listA = listA = fillListAWithNumbers();
     List<Integer> listB = listB = fillListBWithNumbers();
     for (Integer temp : returnFirstListsIntegerOnly(listA, listB)) {
       System.out.println(temp);
     }
   }
 
-  private static List<Integer> returnFirstListsIntegerOnly(List<Integer> listA, List<Integer> listB) {
+  public static List<Integer> returnFirstListsIntegerOnly(List<Integer> listA,
+      List<Integer> listB) {
     List<Integer> returnList = new ArrayList<>();
-    for (int i = 0; i < listA.size() ; i++) {
+    for (int i = 0; i < listA.size(); i++) {
       if (!listB.contains(listA.get(i))) {
         returnList.add(listA.get(i));
       }
@@ -21,7 +22,7 @@ public class OnlyFirstArrayNumbers {
     return returnList;
   }
 
-  private static List<Integer> fillListAWithNumbers() {
+  public static List<Integer> fillListAWithNumbers() {
     List<Integer> listA = new ArrayList<>();
     listA.add(1);
     listA.add(2);
@@ -30,7 +31,7 @@ public class OnlyFirstArrayNumbers {
     return listA;
   }
 
-  private static List<Integer> fillListBWithNumbers() {
+  public static List<Integer> fillListBWithNumbers() {
     List<Integer> listB = new ArrayList<>();
     listB.add(3);
     listB.add(4);
